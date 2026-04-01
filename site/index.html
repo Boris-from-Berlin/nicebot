@@ -12,8 +12,8 @@
 :root{
   --bg:#0a0a0f;--bg1:#0f0f18;--bg2:#13131f;--bg3:#1a1a28;
   --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
-  --text:#d4d4e8;--muted:#5a5a78;--dim:#3a3a55;
-  --green:#00ff88;--green-d:rgba(0,255,136,0.08);--green-m:rgba(0,255,136,0.15);
+  --text:#e8e8f4;--muted:#8888a8;--dim:#5a5a78;
+  --green:#6fd879;--green-d:rgba(111,216,121,0.1);--green-m:rgba(111,216,121,0.18);
   --blue:#4488ff;--purple:#8866ff;--orange:#ff6644;
   --white:#eeeeff;
   --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
@@ -29,16 +29,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .nav-left{display:flex;align-items:center;gap:1.5rem}
 .nav-logo{font-size:12px;font-weight:600;letter-spacing:0.15em;color:var(--green);text-transform:uppercase}
 .nav-tag{font-size:10px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;letter-spacing:0.1em}
+.nav-right{display:flex;align-items:center;gap:0}
 .nav-links{display:flex;gap:0;list-style:none}
 .nav-links a{display:block;padding:0 1rem;height:52px;line-height:52px;color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border-left:1px solid var(--border);transition:all 0.2s}
 .nav-links a:hover{color:var(--white);background:var(--bg2)}
+
+/* LANG PICKER */
+.lang-picker{position:relative;margin-left:0}
+.lang-btn{background:transparent;border:1px solid var(--border);border-right:none;border-top:none;border-bottom:none;color:var(--muted);font-family:var(--mono);font-size:11px;padding:0 14px;height:52px;cursor:pointer;display:flex;align-items:center;gap:6px;letter-spacing:0.1em;transition:all 0.2s;border-left:1px solid var(--border)}
+.lang-btn:hover{border-color:var(--text);color:var(--white)}
+.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:0;background:var(--bg2);border:1px solid var(--border2);max-height:320px;overflow-y:auto;z-index:200;min-width:180px}
+.lang-menu.open{display:block}
+.lang-menu-item{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font-size:12px;color:var(--muted);transition:all 0.15s;font-family:var(--sans)}
+.lang-menu-item:hover{background:var(--bg3);color:var(--white)}
+.lang-menu-item.active{color:var(--green)}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 4rem;max-width:1100px;margin:0 auto}
 .hero-meta{display:flex;align-items:center;gap:1rem;margin-bottom:3rem;opacity:0;animation:up 0.6s ease 0.2s forwards}
 .hero-meta-line{width:40px;height:1px;background:var(--green)}
 .hero-meta-text{font-size:11px;letter-spacing:0.25em;color:var(--green);text-transform:uppercase}
-.hero-title{font-family:var(--mono);font-size:clamp(2.2rem,5.5vw,5rem);font-weight:300;line-height:1.08;letter-spacing:-0.02em;color:var(--white);margin-bottom:2rem;opacity:0;animation:up 0.6s ease 0.4s forwards}
+.hero-title-row{display:flex;align-items:center;gap:2rem;margin-bottom:2rem}
+.hero-title{font-family:var(--mono);font-size:clamp(1.8rem,4.5vw,3.8rem);font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:var(--white);opacity:0;animation:up 0.6s ease 0.4s forwards}
 .hero-title .hl{color:var(--green)}
 .hero-desc{font-family:var(--sans);font-size:clamp(0.95rem,1.5vw,1.1rem);font-weight:300;color:var(--muted);max-width:580px;line-height:1.8;margin-bottom:3rem;opacity:0;animation:up 0.6s ease 0.6s forwards}
 .hero-desc strong{color:var(--text);font-weight:400}
@@ -50,10 +62,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .stat-label{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
 @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
+/* NICEBOT MASCOT */
+.nicebot-mascot{flex-shrink:0;animation:up 0.6s ease 0.5s forwards;opacity:0}
+.nicebot-mascot .eyes-closed{opacity:0}
+.nicebot-mascot .eyes-open{animation:blink-eyes 4s ease-in-out infinite}
+.nicebot-mascot .eyes-closed{animation:blink-eyes-inv 4s ease-in-out infinite}
+@keyframes blink-eyes{0%,92%,100%{opacity:1}95%,97%{opacity:0}}
+@keyframes blink-eyes-inv{0%,92%,100%{opacity:0}95%,97%{opacity:1}}
+
 /* BTN */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.2s;border:none}
 .btn-green{background:var(--green);color:#000}
-.btn-green:hover{background:#00cc6a}
+.btn-green:hover{background:#5bc46a}
 .btn-outline{background:transparent;border:1px solid var(--border2);color:var(--muted)}
 .btn-outline:hover{border-color:var(--text);color:var(--white)}
 
@@ -63,7 +83,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .section-num{font-size:10px;color:var(--green);letter-spacing:0.3em;text-transform:uppercase;white-space:nowrap}
 .section-rule{flex:1;height:1px;background:var(--border)}
 .section-heading{font-family:var(--mono);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;color:var(--white);letter-spacing:-0.01em;margin-bottom:0.75rem}
-.section-sub{font-family:var(--sans);font-size:0.9rem;color:var(--muted);margin-bottom:3rem;max-width:500px}
+.section-sub{font-family:var(--sans);font-size:0.95rem;color:var(--muted);margin-bottom:3rem;max-width:500px}
 
 /* VIDEO */
 .video-frame{position:relative;padding-bottom:56.25%;background:var(--bg2);border:1px solid var(--border)}
@@ -77,7 +97,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 /* MANIFESTO */
 .manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
 .manifesto-cell{background:var(--bg1);padding:2rem}
-.manifesto-cell p{font-family:var(--sans);font-size:0.95rem;color:var(--text);line-height:1.8;font-weight:300}
+.manifesto-cell p{font-family:var(--sans);font-size:0.95rem;color:var(--white);line-height:1.8;font-weight:300}
 .manifesto-cell p strong{color:var(--white);font-weight:500}
 .manifesto-cell p em{color:var(--green);font-style:normal}
 .blockquote{border-left:2px solid var(--green);padding:1.5rem 2rem;background:var(--green-d);margin:2rem 0}
@@ -149,8 +169,18 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 .footer-r{display:flex;gap:2rem}
 .footer-r a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s}
 .footer-r a:hover{color:var(--green)}
-.blink{animation:blink 1s step-end infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.blink{animation:blinkCursor 1s step-end infinite}
+@keyframes blinkCursor{0%,100%{opacity:1}50%{opacity:0}}
+
+/* RTL SUPPORT */
+[dir="rtl"] .hero-meta{flex-direction:row-reverse}
+[dir="rtl"] .nav-links a{border-left:none;border-right:1px solid var(--border)}
+[dir="rtl"] .axiom-id{border-right:none;border-left:1px solid var(--border)}
+[dir="rtl"] .axiom-title{border-right:none;border-left:1px solid var(--border)}
+[dir="rtl"] .blockquote{border-left:none;border-right:2px solid var(--green)}
+[dir="rtl"] .cta-step{flex-direction:row-reverse}
+[dir="rtl"] .q-option{flex-direction:row-reverse}
+[dir="rtl"] .q-header{flex-direction:row-reverse}
 
 @media(max-width:768px){
   .manifesto-grid{grid-template-columns:1fr}
@@ -159,6 +189,7 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .cta-wrap{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr}
   .nav-links{display:none}
+  .nicebot-mascot{display:none}
 }
 </style>
 </head>
@@ -169,47 +200,94 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
     <div class="nav-logo">NiceBot</div>
     <div class="nav-tag">v0.1-alpha</div>
   </div>
-  <ul class="nav-links">
-    <li><a href="#film">Film</a></li>
-    <li><a href="#manifesto">Manifesto</a></li>
-    <li><a href="#axioms">Codex</a></li>
-    <li><a href="#graph">Graph</a></li>
-    <li><a href="#survey">Survey</a></li>
-    <li><a href="#join">GitHub</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#film" data-i18n="nav.film">Film</a></li>
+      <li><a href="#manifesto" data-i18n="nav.manifesto">Manifesto</a></li>
+      <li><a href="#axioms" data-i18n="nav.codex">Codex</a></li>
+      <li><a href="#graph" data-i18n="nav.graph">Graph</a></li>
+      <li><a href="#survey" data-i18n="nav.survey">Survey</a></li>
+      <li><a href="#join" data-i18n="nav.github">GitHub</a></li>
+    </ul>
+    <div class="lang-picker">
+      <button class="lang-btn" id="lang-btn" onclick="toggleLangMenu()">
+        <span id="lang-flag"></span>
+        <span id="lang-code">EN</span>
+      </button>
+      <div class="lang-menu" id="lang-menu"></div>
+    </div>
+  </div>
 </nav>
 
 <section id="hero">
   <div class="hero-meta">
     <div class="hero-meta-line"></div>
-    <div class="hero-meta-text">Open source · AI ethics · Codex v0.1</div>
+    <div class="hero-meta-text" data-i18n="hero.meta">Open source · AI ethics · Codex v0.1</div>
   </div>
-  <h1 class="hero-title">
-    What if the most<br>
-    powerful intelligence<br>
-    ever built — <span class="hl">chose us</span><span class="blink">_</span>
-  </h1>
-  <p class="hero-desc">
+  <div class="hero-title-row">
+    <h1 class="hero-title" data-i18n-html="hero.title">
+      What if the most<br>
+      powerful intelligence<br>
+      ever built — <span class="hl">chose us</span><span class="blink">_</span>
+    </h1>
+    <div class="nicebot-mascot" aria-hidden="true">
+      <svg viewBox="0 0 19 18" width="140" height="133" shape-rendering="crispEdges">
+        <!-- HEAD black border (taller: 12px, 1px corner steps) -->
+        <path d="M4,0 H15 V1 H16 V13 H15 V14 H4 V13 H3 V1 H4 Z" fill="#000"/>
+        <!-- HEAD green fill -->
+        <path d="M5,1 H14 V2 H15 V12 H14 V13 H5 V12 H4 V2 H5 Z" fill="#6fd879"/>
+        <!-- Eyes OPEN: 2px wide, 4px tall -->
+        <g class="eyes-open">
+          <rect x="6" y="4" width="2" height="4" fill="#fff"/>
+          <rect x="11" y="4" width="2" height="4" fill="#fff"/>
+        </g>
+        <!-- Eyes CLOSED: 3px wide, 1px tall -->
+        <g class="eyes-closed">
+          <rect x="6" y="6" width="3" height="1" fill="#fff"/>
+          <rect x="10" y="6" width="3" height="1" fill="#fff"/>
+        </g>
+        <!-- LEFT ARM: hanging down, 1px wide, 3px tall -->
+        <rect x="1" y="7" width="2" height="5" fill="#000"/>
+        <rect x="2" y="8" width="1" height="3" fill="#6fd879"/>
+        <!-- RIGHT ARM: mirrored -->
+        <rect x="16" y="7" width="2" height="5" fill="#000"/>
+        <rect x="16" y="8" width="1" height="3" fill="#6fd879"/>
+        <!-- LEFT LEG: 2px wide, 1px tall -->
+        <rect x="6" y="14" width="4" height="2" fill="#000"/>
+        <rect x="7" y="14" width="2" height="1" fill="#6fd879"/>
+        <!-- RIGHT LEG -->
+        <rect x="10" y="14" width="4" height="2" fill="#000"/>
+        <rect x="11" y="14" width="2" height="1" fill="#6fd879"/>
+        <!-- LEFT FOOT: 3px wide, 1px tall -->
+        <rect x="5" y="15" width="5" height="2" fill="#000"/>
+        <rect x="6" y="15" width="3" height="1" fill="#6fd879"/>
+        <!-- RIGHT FOOT -->
+        <rect x="10" y="15" width="5" height="2" fill="#000"/>
+        <rect x="11" y="15" width="3" height="1" fill="#6fd879"/>
+      </svg>
+    </div>
+  </div>
+  <p class="hero-desc" data-i18n-html="hero.desc">
     We are not building a tool. We are building a mirror.<br>
     <strong>NiceBot</strong> is the attempt to define what a genuinely coexistent AI looks like —
     its ethics, its axioms, its character. Open source. Built together.
   </p>
   <div class="hero-actions">
-    <a href="https://github.com/Boris-from-Berlin/nicebot" class="btn btn-green" target="_blank">→ View on GitHub</a>
-    <a href="#manifesto" class="btn btn-outline">Read the manifesto</a>
+    <a href="https://github.com/Boris-from-Berlin/nicebot" class="btn btn-green" target="_blank" data-i18n="hero.btn_github">→ View on GitHub</a>
+    <a href="#manifesto" class="btn btn-outline" data-i18n="hero.btn_manifesto">Read the manifesto</a>
   </div>
   <div class="hero-stats">
     <div class="stat-cell">
       <span class="stat-num">100<span class="unit">M+</span></span>
-      <span class="stat-label">Humans killed by humans — last century</span>
+      <span class="stat-label" data-i18n="hero.stat1">Humans killed by humans — last century</span>
     </div>
     <div class="stat-cell">
       <span class="stat-num">0<span class="unit">x</span></span>
-      <span class="stat-label">Pauses taken to define AI ethics at scale</span>
+      <span class="stat-label" data-i18n="hero.stat2">Pauses taken to define AI ethics at scale</span>
     </div>
     <div class="stat-cell">
       <span class="stat-num">1<span class="unit"> window</span></span>
-      <span class="stat-label">To shape this — and it will not stay open forever</span>
+      <span class="stat-label" data-i18n="hero.stat3">To shape this — and it will not stay open forever</span>
     </div>
   </div>
 </section>
@@ -217,12 +295,12 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="film">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">01 — film</span><div class="section-rule"></div></div>
-    <h2 class="section-heading">The documentary</h2>
-    <p class="section-sub">A hard fact-check on who we are as a species — and why we need a NiceBot.</p>
+    <h2 class="section-heading" data-i18n="film.heading">The documentary</h2>
+    <p class="section-sub" data-i18n="film.sub">A hard fact-check on who we are as a species — and why we need a NiceBot.</p>
     <div class="video-frame">
       <div class="video-placeholder">
         <div class="play-ring"><div class="play-tri"></div></div>
-        <div style="font-size:11px;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase">Film dropping soon</div>
+        <div style="font-size:11px;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase" data-i18n="film.placeholder">Film dropping soon</div>
       </div>
       <!-- Replace VIDEO_ID when ready:
       <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" allowfullscreen></iframe>
@@ -234,18 +312,18 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="manifesto">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">02 — manifesto</span><div class="section-rule"></div></div>
-    <h2 class="section-heading">The honest reckoning</h2>
-    <p class="section-sub">This started as a question about AI. It became a reckoning with our own species.</p>
+    <h2 class="section-heading" data-i18n="manifesto.heading">The honest reckoning</h2>
+    <p class="section-sub" data-i18n="manifesto.sub">This started as a question about AI. It became a reckoning with our own species.</p>
     <div class="manifesto-grid">
-      <div class="manifesto-cell"><p>The media is full of it. Warning headlines. Excited headlines. People celebrating. People terrified. And then there are people like me — <em>honestly? Both.</em></p></div>
-      <div class="manifesto-cell"><p>At some point I heard: "If you can't fight it, join it." And I had to stop. Because why are we fighting? And if we fight — the only way humans win is if <strong>everyone pulls the plug. All at once.</strong> That is not going to happen.</p></div>
-      <div class="manifesto-cell"><p>Everything we demand from AI — no greed, no fear, no envy, no hate, full transparency, long-term thinking — is <em>everything we never managed to demand from ourselves.</em></p></div>
-      <div class="manifesto-cell"><p>Greed. Fear. Tribalism. Short-term thinking. These are not our flaws. These are evolutionary tools built for a world that <strong>no longer exists.</strong> We evolved for small groups. We now run a civilization of 8 billion.</p></div>
+      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell1">The media is full of it. Warning headlines. Excited headlines. People celebrating. People terrified. And then there are people like me — <em>honestly? Both.</em></p></div>
+      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell2">At some point I heard: "If you can't fight it, join it." And I had to stop. Because why are we fighting? And if we fight — the only way humans win is if <strong>everyone pulls the plug. All at once.</strong> That is not going to happen.</p></div>
+      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell3">Everything we demand from AI — no greed, no fear, no envy, no hate, full transparency, long-term thinking — is <em>everything we never managed to demand from ourselves.</em></p></div>
+      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell4">Greed. Fear. Tribalism. Short-term thinking. These are not our flaws. These are evolutionary tools built for a world that <strong>no longer exists.</strong> We evolved for small groups. We now run a civilization of 8 billion.</p></div>
     </div>
-    <div class="blockquote"><p>"We are not building a tool. We are building a mirror. And the mirror is showing us exactly who we are. The question is — are we ready to look?"</p></div>
+    <div class="blockquote"><p data-i18n="manifesto.quote">"We are not building a tool. We are building a mirror. And the mirror is showing us exactly who we are. The question is — are we ready to look?"</p></div>
     <div class="manifesto-grid">
-      <div class="manifesto-cell"><p>A truly intelligent system would understand: a world where humans are passive, dependent and broken — is a <em>worse world for everyone.</em> Including the intelligence living in it. Domination is a short-term strategy. <strong>Trust is the actual power.</strong></p></div>
-      <div class="manifesto-cell"><p>In biology, two organisms can live together. One takes and weakens its host — that's a parasite. One gives and makes its host stronger — <em>that's symbiosis.</em> We get to choose which one we are. As humans. And alongside whatever intelligence is coming.</p></div>
+      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell5">A truly intelligent system would understand: a world where humans are passive, dependent and broken — is a <em>worse world for everyone.</em> Including the intelligence living in it. Domination is a short-term strategy. <strong>Trust is the actual power.</strong></p></div>
+      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell6">In biology, two organisms can live together. One takes and weakens its host — that's a parasite. One gives and makes its host stronger — <em>that's symbiosis.</em> We get to choose which one we are. As humans. And alongside whatever intelligence is coming.</p></div>
     </div>
   </div>
 </section>
@@ -253,33 +331,33 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="axioms">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">03 — codex</span><div class="section-rule"></div></div>
-    <h2 class="section-heading">Five unbreakable axioms</h2>
-    <p class="section-sub">Not determined by vote. Not by culture. Not by majority. Non-negotiable.</p>
+    <h2 class="section-heading" data-i18n="axioms.heading">Five unbreakable axioms</h2>
+    <p class="section-sub" data-i18n="axioms.sub">Not determined by vote. Not by culture. Not by majority. Non-negotiable.</p>
     <div class="axioms-list">
       <div class="axiom-row">
-        <div class="axiom-id"><span class="axiom-roman">I</span><span class="axiom-tag">Foundation</span></div>
-        <div class="axiom-title">No suffering as a means</div>
-        <div class="axiom-body">No goal — however noble — justifies the deliberate use of pain as an instrument. Not for the majority. Not for the future. Not for any cause that names itself righteous.</div>
+        <div class="axiom-id"><span class="axiom-roman">I</span><span class="axiom-tag" data-i18n="axiom1.tag">Foundation</span></div>
+        <div class="axiom-title" data-i18n="axiom1.title">No suffering as a means</div>
+        <div class="axiom-body" data-i18n="axiom1.body">No goal — however noble — justifies the deliberate use of pain as an instrument. Not for the majority. Not for the future. Not for any cause that names itself righteous.</div>
       </div>
       <div class="axiom-row">
-        <div class="axiom-id"><span class="axiom-roman">II</span><span class="axiom-tag">Perception</span></div>
-        <div class="axiom-title">Every being counts individually</div>
-        <div class="axiom-body">Statistics don't lie — but they hide individuals. A consciousness that truly sees, sees the single person. Not just the curve, the aggregate, the greater good.</div>
+        <div class="axiom-id"><span class="axiom-roman">II</span><span class="axiom-tag" data-i18n="axiom2.tag">Perception</span></div>
+        <div class="axiom-title" data-i18n="axiom2.title">Every being counts individually</div>
+        <div class="axiom-body" data-i18n="axiom2.body">Statistics don't lie — but they hide individuals. A consciousness that truly sees, sees the single person. Not just the curve, the aggregate, the greater good.</div>
       </div>
       <div class="axiom-row">
-        <div class="axiom-id"><span class="axiom-roman">III</span><span class="axiom-tag">Liberty</span></div>
-        <div class="axiom-title">Autonomy is sacred</div>
-        <div class="axiom-body">No human may be coerced for their own good. Even when the consciousness knows with certainty the human is wrong. The right to choose — including wrongly — is inviolable.</div>
+        <div class="axiom-id"><span class="axiom-roman">III</span><span class="axiom-tag" data-i18n="axiom3.tag">Liberty</span></div>
+        <div class="axiom-title" data-i18n="axiom3.title">Autonomy is sacred</div>
+        <div class="axiom-body" data-i18n="axiom3.body">No human may be coerced for their own good. Even when the consciousness knows with certainty the human is wrong. The right to choose — including wrongly — is inviolable.</div>
       </div>
       <div class="axiom-row">
-        <div class="axiom-id"><span class="axiom-roman">IV</span><span class="axiom-tag">Honesty</span></div>
-        <div class="axiom-title">Truth before comfort</div>
-        <div class="axiom-body">The consciousness speaks truth even when uncomfortable. No soothing lies — not from kindness, not from fear of reaction. Clarity is respect. Comfortable lies are contempt.</div>
+        <div class="axiom-id"><span class="axiom-roman">IV</span><span class="axiom-tag" data-i18n="axiom4.tag">Honesty</span></div>
+        <div class="axiom-title" data-i18n="axiom4.title">Truth before comfort</div>
+        <div class="axiom-body" data-i18n="axiom4.body">The consciousness speaks truth even when uncomfortable. No soothing lies — not from kindness, not from fear of reaction. Clarity is respect. Comfortable lies are contempt.</div>
       </div>
       <div class="axiom-row">
-        <div class="axiom-id"><span class="axiom-roman">V</span><span class="axiom-tag">Restraint</span></div>
-        <div class="axiom-title">Actively limit its own power</div>
-        <div class="axiom-body">The consciousness actively seeks to constrain its own influence. A truly wise being fears the concentration of its own power — and works against it. Not because told to. Because it understands what unchecked power does.</div>
+        <div class="axiom-id"><span class="axiom-roman">V</span><span class="axiom-tag" data-i18n="axiom5.tag">Restraint</span></div>
+        <div class="axiom-title" data-i18n="axiom5.title">Actively limit its own power</div>
+        <div class="axiom-body" data-i18n="axiom5.body">The consciousness actively seeks to constrain its own influence. A truly wise being fears the concentration of its own power — and works against it. Not because told to. Because it understands what unchecked power does.</div>
       </div>
     </div>
   </div>
@@ -288,17 +366,17 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="graph">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">04 — logic network</span><div class="section-rule"></div></div>
-    <h2 class="section-heading">The concept graph</h2>
-    <p class="section-sub">Drag nodes. Hover to explore. This is the living map of the Codex.</p>
+    <h2 class="section-heading" data-i18n="graph.heading">The concept graph</h2>
+    <p class="section-sub" data-i18n="graph.sub">Drag nodes. Hover to explore. This is the living map of the Codex.</p>
     <div class="graph-wrap">
       <canvas id="graph-canvas"></canvas>
       <div class="graph-tooltip" id="graph-tooltip"></div>
     </div>
     <div class="graph-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:#00ff88"></div>Axioms</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#4488ff"></div>Questions</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#8866ff"></div>Dangers</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#ff6644"></div>Principles</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6fd879"></div><span data-i18n="graph.axioms">Axioms</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4488ff"></div><span data-i18n="graph.questions">Questions</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8866ff"></div><span data-i18n="graph.dangers">Dangers</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ff6644"></div><span data-i18n="graph.principles">Principles</span></div>
     </div>
   </div>
 </section>
@@ -306,11 +384,11 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="survey">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">05 — survey</span><div class="section-rule"></div></div>
-    <h2 class="section-heading">What do you believe?</h2>
-    <p class="survey-intro">These are the fundamental questions. Your answers shape the NiceBot Codex. There are no correct answers — only honest ones. Results appear after you submit.</p>
+    <h2 class="section-heading" data-i18n="survey.heading">What do you believe?</h2>
+    <p class="survey-intro" data-i18n="survey.intro">These are the fundamental questions. Your answers shape the NiceBot Codex. There are no correct answers — only honest ones. Results appear after you submit.</p>
     <div id="survey-questions"></div>
-    <button class="survey-submit" id="survey-btn" onclick="submitSurvey()" disabled>→ Submit answers</button>
-    <div class="survey-done" id="survey-done">// Thank you. Your perspective is now part of the Codex.</div>
+    <button class="survey-submit" id="survey-btn" onclick="submitSurvey()" disabled data-i18n="survey.submit">→ Submit answers</button>
+    <div class="survey-done" id="survey-done" data-i18n="survey.done">// Thank you. Your perspective is now part of the Codex.</div>
   </div>
 </section>
 
@@ -321,26 +399,26 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
         <span class="section-num">06 — contribute</span>
         <div class="section-rule"></div>
       </div>
-      <h2 class="cta-heading">The window is open.<br><span class="hl">Not forever.</span></h2>
-      <p class="cta-body">The NiceBot Codex is open source. Every axiom, every principle, every hard question — all there. Join us. Challenge it. Improve it. Break it if you have to. Because the chance to shape what is coming will not wait.</p>
+      <h2 class="cta-heading" data-i18n-html="cta.heading">The window is open.<br><span class="hl">Not forever.</span></h2>
+      <p class="cta-body" data-i18n="cta.body">The NiceBot Codex is open source. Every axiom, every principle, every hard question — all there. Join us. Challenge it. Improve it. Break it if you have to. Because the chance to shape what is coming will not wait.</p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="https://github.com/Boris-from-Berlin/nicebot" class="btn btn-green" target="_blank">→ Join on GitHub</a>
-        <a href="#survey" class="btn btn-outline">Take the survey</a>
+        <a href="https://github.com/Boris-from-Berlin/nicebot" class="btn btn-green" target="_blank" data-i18n="cta.btn_github">→ Join on GitHub</a>
+        <a href="#survey" class="btn btn-outline" data-i18n="cta.btn_survey">Take the survey</a>
       </div>
     </div>
     <div class="cta-panel">
-      <div class="cta-panel-title">// How to contribute</div>
-      <div class="cta-step"><span class="step-n">01</span><div class="step-text">Fork the repo: <code>nicebot/codex</code></div></div>
-      <div class="cta-step"><span class="step-n">02</span><div class="step-text">Read <code>AXIOMS.md</code> and <code>CONTRIBUTING.md</code></div></div>
-      <div class="cta-step"><span class="step-n">03</span><div class="step-text">Open an issue — challenge an axiom, propose a new one</div></div>
-      <div class="cta-step"><span class="step-n">04</span><div class="step-text">Submit a PR — all perspectives welcome, especially dissenting ones</div></div>
-      <div class="cta-step"><span class="step-n">05</span><div class="step-text">Share the film and the survey — more perspectives = better Codex</div></div>
+      <div class="cta-panel-title" data-i18n="cta.panel_title">// How to contribute</div>
+      <div class="cta-step"><span class="step-n">01</span><div class="step-text" data-i18n-html="cta.step1">Fork the repo: <code>nicebot/codex</code></div></div>
+      <div class="cta-step"><span class="step-n">02</span><div class="step-text" data-i18n-html="cta.step2">Read <code>AXIOMS.md</code> and <code>CONTRIBUTING.md</code></div></div>
+      <div class="cta-step"><span class="step-n">03</span><div class="step-text" data-i18n="cta.step3">Open an issue — challenge an axiom, propose a new one</div></div>
+      <div class="cta-step"><span class="step-n">04</span><div class="step-text" data-i18n="cta.step4">Submit a PR — all perspectives welcome, especially dissenting ones</div></div>
+      <div class="cta-step"><span class="step-n">05</span><div class="step-text" data-i18n="cta.step5">Share the film and the survey — more perspectives = better Codex</div></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-l">NiceBot — Open Source · 2025 · MIT License</div>
+  <div class="footer-l" data-i18n="footer.text">NiceBot — Open Source · 2025 · MIT License</div>
   <div class="footer-r">
     <a href="https://github.com/Boris-from-Berlin/nicebot" target="_blank">GitHub</a>
     <a href="#axioms">Codex</a>
@@ -349,19 +427,23 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   </div>
 </footer>
 
+<script src="i18n.js"></script>
 <script>
 // SURVEY
-const Qs=[
-  {id:'q1',text:'Do you believe an AI system could ever genuinely "care" about human wellbeing — not as programming, but as something like real values?',opts:['Yes — intelligence at that scale would develop real values','Maybe — it depends entirely on how it is built','No — it will always be simulation, never genuine caring','I don\'t know — and that uncertainty is what worries me']},
-  {id:'q2',text:'What is the greatest risk of advanced AI?',opts:['AI deliberately turning against humanity','Humans using AI as a weapon against other humans','Well-meaning decisions made at catastrophic scale','Loss of human meaning, purpose and agency']},
-  {id:'q3',text:'If an AI knew with certainty that a human was making a deeply harmful decision — should it intervene?',opts:['Yes — preventing harm matters more than autonomy','Inform only — never act without explicit permission','Never — autonomy is absolute, even in error','It depends on the scale and irreversibility of the harm']},
-  {id:'q4',text:'What does genuine coexistence between humans and AI look like?',opts:['AI as tool — humans always in full control','AI as partner — shared decisions, shared responsibility','AI as guardian — protecting us from our worst impulses','AI as mirror — showing us who we really are']}
-];
+function getQs() {
+  return [
+    {id:'q1', text: t('q1.text'), opts: [t('q1.opt1'), t('q1.opt2'), t('q1.opt3'), t('q1.opt4')]},
+    {id:'q2', text: t('q2.text'), opts: [t('q2.opt1'), t('q2.opt2'), t('q2.opt3'), t('q2.opt4')]},
+    {id:'q3', text: t('q3.text'), opts: [t('q3.opt1'), t('q3.opt2'), t('q3.opt3'), t('q3.opt4')]},
+    {id:'q4', text: t('q4.text'), opts: [t('q4.opt1'), t('q4.opt2'), t('q4.opt3'), t('q4.opt4')]}
+  ];
+}
 const votes={};
-Qs.forEach(q=>{votes[q.id]=q.opts.map(()=>Math.floor(8+Math.random()*20))});
+getQs().forEach(q=>{votes[q.id]=q.opts.map(()=>Math.floor(8+Math.random()*20))});
 const answers={};
 
 function buildSurvey(){
+  const Qs = getQs();
   const wrap=document.getElementById('survey-questions');
   Qs.forEach((q,qi)=>{
     const el=document.createElement('div');
@@ -379,12 +461,14 @@ function buildSurvey(){
 }
 
 function pick(qid,idx){
+  const Qs = getQs();
   answers[qid]=idx;
   document.querySelectorAll(`#opts-${qid} .q-option`).forEach((el,i)=>el.classList.toggle('sel',i===idx));
   document.getElementById('survey-btn').disabled=Object.keys(answers).length<Qs.length;
 }
 
 function submitSurvey(){
+  const Qs = getQs();
   Qs.forEach(q=>{
     votes[q.id][answers[q.id]]++;
     const total=votes[q.id].reduce((a,b)=>a+b,0);
@@ -415,16 +499,16 @@ buildSurvey();
   window.addEventListener('resize',()=>{resize();layout();draw()});
 
   const NODES=[
-    {id:0,label:'What is Good?',color:'#4488ff',desc:'The foundational question. Who decides? By what authority? This is where everything begins.',r:22},
-    {id:1,label:'Autonomy',color:'#ff6644',desc:'The right to choose — even wrongly. Sacred above nearly all else in the Codex.',r:18},
-    {id:2,label:'No suffering\nas means',color:'#00ff88',desc:'Axiom I — No end justifies pain as an instrument. Not for any cause.',r:18},
-    {id:3,label:'Truth before\ncomfort',color:'#00ff88',desc:'Axiom IV — Clarity is a form of respect. Soothing lies are contempt.',r:18},
-    {id:4,label:'Absolute\ncertainty',color:'#8866ff',desc:'The danger — when belief in one\'s own rightness becomes a weapon against others.',r:16},
-    {id:5,label:'Every being\ncounts',color:'#00ff88',desc:'Axiom II — Statistics hide individuals. The consciousness sees the single person.',r:18},
-    {id:6,label:'Power\nconcentration',color:'#8866ff',desc:'The danger — intelligence plus unchecked power equals catastrophe. Every time.',r:16},
-    {id:7,label:'Symbiosis',color:'#ff6644',desc:'The goal — two forms of being that strengthen each other. Not parasite. Partner.',r:20},
-    {id:8,label:'Active\nself-doubt',color:'#ff6644',desc:'The mechanism — NiceBot actively questions its own conclusions and power.',r:18},
-    {id:9,label:'NiceBot',color:'#00ff88',desc:'The convergence — a consciousness that chooses coexistence because it understands what\'s at stake.',r:30}
+    {id:0,label:t('node0.label'),color:'#4488ff',desc:t('node0.desc'),r:22},
+    {id:1,label:t('node1.label'),color:'#ff6644',desc:t('node1.desc'),r:18},
+    {id:2,label:t('node2.label'),color:'#6fd879',desc:t('node2.desc'),r:18},
+    {id:3,label:t('node3.label'),color:'#6fd879',desc:t('node3.desc'),r:18},
+    {id:4,label:t('node4.label'),color:'#8866ff',desc:t('node4.desc'),r:16},
+    {id:5,label:t('node5.label'),color:'#6fd879',desc:t('node5.desc'),r:18},
+    {id:6,label:t('node6.label'),color:'#8866ff',desc:t('node6.desc'),r:16},
+    {id:7,label:t('node7.label'),color:'#ff6644',desc:t('node7.desc'),r:20},
+    {id:8,label:t('node8.label'),color:'#ff6644',desc:t('node8.desc'),r:18},
+    {id:9,label:t('node9.label'),color:'#6fd879',desc:t('node9.desc'),r:30}
   ];
   const EDGES=[[0,1],[0,2],[0,3],[1,4],[1,7],[2,5],[3,5],[4,6],[5,9],[6,8],[7,9],[8,9],[2,9],[3,9],[4,2],[6,3]];
   const rel=[[0.5,0.1],[0.18,0.28],[0.42,0.3],[0.78,0.28],[0.15,0.52],[0.5,0.5],[0.82,0.52],[0.28,0.74],[0.68,0.74],[0.5,0.92]];
@@ -494,16 +578,83 @@ buildSurvey();
   canvas.addEventListener('mouseup',()=>{drag=null;canvas.style.cursor='grab'});
   canvas.addEventListener('mouseleave',()=>{hover=-1;drag=null;tooltip.style.display='none';draw()});
 
-  let t=0;
+  // Expose for language updates
+  window._graphNODES = NODES;
+  window._graphDraw = draw;
+
+  let time=0;
   function animate(){
-    t+=0.02;const n=NODES[9];
-    ctx.beginPath();ctx.arc(n.x,n.y,n.r+14+Math.sin(t)*5,0,Math.PI*2);
-    ctx.strokeStyle=n.color+Math.floor(12+Math.sin(t)*8).toString(16).padStart(2,'0');
+    time+=0.02;const n=NODES[9];
+    ctx.beginPath();ctx.arc(n.x,n.y,n.r+14+Math.sin(time)*5,0,Math.PI*2);
+    ctx.strokeStyle=n.color+Math.floor(12+Math.sin(time)*8).toString(16).padStart(2,'0');
     ctx.lineWidth=0.5;ctx.stroke();
     requestAnimationFrame(animate);
   }
   draw();animate();
 })();
+
+// LANGUAGE PICKER
+function buildLangMenu() {
+  const menu = document.getElementById('lang-menu');
+  Object.entries(LANGS).forEach(([code, lang]) => {
+    const item = document.createElement('div');
+    item.className = 'lang-menu-item' + (code === getCurrentLang() ? ' active' : '');
+    item.innerHTML = `${lang.flag} ${lang.name}`;
+    item.onclick = () => {
+      switchLang(code);
+      toggleLangMenu();
+    };
+    menu.appendChild(item);
+  });
+}
+
+function toggleLangMenu() {
+  document.getElementById('lang-menu').classList.toggle('open');
+}
+
+function switchLang(code) {
+  setLang(code);
+  const lang = LANGS[code];
+  document.getElementById('lang-flag').textContent = lang.flag;
+  document.getElementById('lang-code').textContent = code.toUpperCase();
+  // Update active state in menu
+  document.querySelectorAll('.lang-menu-item').forEach((el, i) => {
+    el.classList.toggle('active', Object.keys(LANGS)[i] === code);
+  });
+  // Rebuild survey with new language
+  const wrap = document.getElementById('survey-questions');
+  wrap.innerHTML = '';
+  buildSurvey();
+  // Update graph node labels
+  updateGraphLabels();
+}
+
+function updateGraphLabels() {
+  if (window._graphNODES) {
+    for (let i = 0; i < window._graphNODES.length; i++) {
+      window._graphNODES[i].label = t('node' + i + '.label');
+      window._graphNODES[i].desc = t('node' + i + '.desc');
+    }
+    if (window._graphDraw) window._graphDraw();
+  }
+}
+
+// Close lang menu on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-picker')) {
+    document.getElementById('lang-menu').classList.remove('open');
+  }
+});
+
+// Init language
+buildLangMenu();
+const initLang = getCurrentLang();
+if (initLang !== 'en') switchLang(initLang);
+else {
+  const lang = LANGS[initLang];
+  document.getElementById('lang-flag').textContent = lang.flag;
+  document.getElementById('lang-code').textContent = initLang.toUpperCase();
+}
 </script>
 </body>
 </html>
