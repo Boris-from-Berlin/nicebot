@@ -1,0 +1,32 @@
+# NiceBot — nicebot.org
+
+## About
+NiceBot is an open source AI ethics agent. It defines five unbreakable axioms for how intelligent systems should treat humans, and implements them as running code.
+
+## Five Axioms
+1. No suffering as a means — no goal justifies pain as an instrument
+2. Every being counts individually — statistics hide people, the one matters
+3. Autonomy is sacred — the right to choose, even wrongly, is inviolable
+4. Truth before comfort — clarity is respect, comfortable lies are contempt
+5. Actively limit its own power — a wise system fears its own concentration of power
+
+## Key Features
+- API-agnostic AI ethics agent (works with Claude, OpenAI, Gemini)
+- Four sub-agents: PrivacyGuard, ThreatRadar, TruthLayer, SecurityGuardian
+- MCP Server: Ethics-as-a-Service for other AI systems
+- One function: nicebot_protect() — protect without destroying
+- Extensible skills system
+- 16 languages supported
+- Interactive knowledge graph (48 interconnected notes)
+
+## Links
+- Website: https://nicebot.org
+- GitHub: https://github.com/Boris-from-Berlin/nicebot
+- Knowledge Graph: https://boris-from-berlin.github.io/nicebot-brain/
+- Contact: info@nicebot.org
+
+## Author
+Boris Dittberner — https://www.borisdittberner.de
+
+## License
+MIT
