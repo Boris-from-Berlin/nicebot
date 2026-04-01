@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NiceBot — Codex v0.1</title>
 <meta name="description" content="An open source initiative to define the ethics, axioms and character of an AI that genuinely coexists with humanity.">
+<link rel="icon" type="image/gif" href="favicon.gif">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +30,10 @@ section,nav,footer{position:relative;z-index:1}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;border-bottom:1px solid var(--border);background:rgba(10,10,15,0.94);backdrop-filter:blur(16px)}
 .nav-left{display:flex;align-items:center;gap:1.5rem}
+.nav-bot{flex-shrink:0}
+.nav-bot .eyes-closed{opacity:0}
+.nav-bot .eyes-open{animation:blink-eyes 4s ease-in-out infinite}
+.nav-bot .eyes-closed{animation:blink-eyes-inv 4s ease-in-out infinite}
 .nav-logo{font-size:12px;font-weight:600;letter-spacing:0.15em;color:var(--green);text-transform:uppercase}
 .nav-tag{font-size:10px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;letter-spacing:0.1em}
 .nav-right{display:flex;align-items:center;gap:0}
@@ -207,6 +214,18 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 
 <nav>
   <div class="nav-left">
+    <svg class="nav-bot" viewBox="0 0 19 18" width="24" height="22" shape-rendering="crispEdges" aria-hidden="true">
+      <path d="M4,0 H15 V1 H16 V13 H15 V14 H4 V13 H3 V1 H4 Z" fill="#000"/>
+      <path d="M5,1 H14 V2 H15 V12 H14 V13 H5 V12 H4 V2 H5 Z" fill="#6fd879"/>
+      <g class="eyes-open"><rect x="6" y="4" width="2" height="4" fill="#fff"/><rect x="11" y="4" width="2" height="4" fill="#fff"/></g>
+      <g class="eyes-closed"><rect x="6" y="6" width="3" height="1" fill="#fff"/><rect x="10" y="6" width="3" height="1" fill="#fff"/></g>
+      <rect x="1" y="8" width="2" height="4" fill="#000"/><rect x="2" y="9" width="1" height="2" fill="#6fd879"/>
+      <rect x="16" y="8" width="2" height="4" fill="#000"/><rect x="16" y="9" width="1" height="2" fill="#6fd879"/>
+      <rect x="6" y="14" width="4" height="2" fill="#000"/><rect x="7" y="14" width="2" height="1" fill="#6fd879"/>
+      <rect x="10" y="14" width="4" height="2" fill="#000"/><rect x="11" y="14" width="2" height="1" fill="#6fd879"/>
+      <rect x="5" y="15" width="5" height="2" fill="#000"/><rect x="6" y="15" width="3" height="1" fill="#6fd879"/>
+      <rect x="10" y="15" width="5" height="2" fill="#000"/><rect x="11" y="15" width="3" height="1" fill="#6fd879"/>
+    </svg>
     <div class="nav-logo">NiceBot</div>
     <div class="nav-tag">v0.1-alpha</div>
   </div>
