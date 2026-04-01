@@ -1,37 +1,85 @@
 # Contributing to NiceBot
 
-Welcome. The fact that you are here means you care about what AI becomes.
+Welcome. The fact that you're here means you care about what AI becomes.
 
-NiceBot is built on the principle that the best ideas come from disagreement, not consensus. The best contribution you can make is an honest one — including one that says "this is wrong."
+NiceBot is built on the idea that the best contributions are honest ones — including ones that say "this axiom is wrong."
 
 ---
 
 ## Three ways to contribute
 
-### 1. Challenge the philosophy
-The Codex is not finished. It is a living document.
+### 1. Challenge the thinking
 
-- Open an issue with label `axiom-challenge` to argue against an axiom
-- Open an issue with label `axiom-proposal` to suggest a new one
-- Open a discussion to explore a philosophical question without a clear answer
+The Codex and the Brain are living documents. They need pushback.
 
-No prior expertise required. A clear argument is worth more than credentials.
+**Challenge an axiom:**
+- Open an [issue](https://github.com/Boris-from-Berlin/nicebot/issues/new) with label `axiom-challenge`
+- Write the strongest argument you can against any axiom
+- No credentials required. A clear argument is worth more than a title.
+
+**Add to the Brain:**
+- Edit or create notes in `obsidian-vault/`
+- Add real-world case studies to Human Patterns
+- Write counter-arguments for axioms
+- Connect concepts with `[[wikilinks]]`
+
+**Start a discussion:**
+- Use [GitHub Discussions](https://github.com/Boris-from-Berlin/nicebot/discussions) for open questions
+- No right answer needed — just honest thinking
 
 ### 2. Build on the agent
-NiceBot is Python-based and API-agnostic. You can:
 
-- Fix bugs and improve existing modules
-- Add a new sub-agent (see architecture in `agent/README.md`)
-- Improve a capability (PrivacyGuard, ThreatRadar, TruthLayer, EthicsAdvisor)
-- Port it to another language or framework
-- Build an integration (browser extension, Telegram bot, CLI tool, etc.)
+The Python agent is v0.1-alpha. Plenty to improve:
 
-All PRs welcome. Especially ones that break assumptions.
+| Difficulty | Idea |
+|-----------|------|
+| Easy | Add a test case to an existing module |
+| Easy | Improve pattern detection in TruthLayer |
+| Medium | Add conversation memory (persistent context) |
+| Medium | Build a Discord or Telegram bot integration |
+| Hard | Implement a new sub-agent with its own reasoning |
+| Hard | Build an MCP server for Ethics-as-a-Service |
 
 ### 3. Share your perspective
-- Fill out the [survey](https://YOUR_USERNAME.github.io/nicebot/#survey)
-- Share the project with people who would push back on it
-- Translate the README or Codex into another language
+
+- Take the [survey](https://boris-from-berlin.github.io/nicebot/#survey) — your answers shape the Codex
+- Share the project with someone who would disagree with it
+- Translate content (we support 16 languages, always room for improvement)
+
+---
+
+## How to contribute code or content
+
+```bash
+# 1. Fork and clone
+git clone https://github.com/YOUR_USERNAME/nicebot.git
+cd nicebot
+
+# 2. Create a branch
+git checkout -b your-change
+
+# 3. Make your changes
+
+# 4. Commit and push
+git add .
+git commit -m "What you changed and why"
+git push origin your-change
+
+# 5. Open a Pull Request on GitHub
+```
+
+**For Brain/Vault changes:**
+- Edit markdown files in `obsidian-vault/`
+- Use `[[wikilinks]]` to connect to existing notes
+- Add tags: `#axiom`, `#human-pattern`, `#principle`, `#question`
+
+**For Codex changes (AXIOMS.md):**
+- Open an issue first for discussion
+- No silent edits to the philosophical foundation
+
+**For agent changes:**
+- Test locally: `python agent/nicebot.py`
+- Keep changes focused — one feature per PR
 
 ---
 
@@ -39,39 +87,40 @@ All PRs welcome. Especially ones that break assumptions.
 
 NiceBot holds itself to its own axioms. So does this community.
 
-**Axiom I applies here too:** No personal attacks, no cruelty, no deliberate harm.
-
-**Axiom IV applies here too:** Be honest. Disagree openly. Don't soften a real objection to be polite.
-
-**Axiom III applies here too:** No one is forced to agree. Dissent is documented, not deleted.
+- **Axiom I:** No personal attacks. Disagree with ideas, not people.
+- **Axiom III:** No one is forced to agree. Dissent is documented, not deleted.
+- **Axiom IV:** Be honest. Don't soften a real objection to be polite.
 
 ---
 
-## Technical contribution process
+## Structure
 
-1. Fork the repository
-2. Create a branch: `git checkout -b feature/your-feature-name`
-3. Make your changes
-4. Test locally: `python -m pytest agent/tests/`
-5. Open a PR with a clear description of what you changed and why
+```
+Where to put things:
 
-**For Codex changes (AXIOMS.md):**
-PRs to AXIOMS.md require an open issue with prior discussion. No silent edits to the philosophical foundation.
+Philosophical content    → obsidian-vault/
+Agent code               → agent/
+Website                  → site/
+Documentation            → docs/
+Axiom challenges         → GitHub Issues (label: axiom-challenge)
+Open questions           → GitHub Discussions
+```
 
 ---
 
-## First contribution ideas
+## The Brain (Obsidian Vault)
 
-Not sure where to start? Here are concrete entry points:
+The vault is NiceBot's knowledge base. Every note links to related concepts:
 
-| Difficulty | Idea |
-|-----------|------|
-| Easy | Translate README to German, Spanish, or another language |
-| Easy | Add a test case to an existing module |
-| Medium | Improve the TruthLayer disinformation detection logic |
-| Medium | Build a simple CLI interface for the agent |
-| Hard | Implement a new sub-agent with its own reasoning pattern |
-| Hard | Challenge Axiom III — write the strongest possible argument against it |
+- `Axioms/` — 5 axiom specs with edge cases
+- `Human Patterns/` — 18 documented human weaknesses (tribalism, greed, echo chambers...)
+- `Principles/` — Core philosophical principles
+- `NiceBot Responses/` — How NiceBot addresses each pattern
+- `Questions/` — Hard questions that stay open
+
+Browse it online: **[NiceBot Brain](https://boris-from-berlin.github.io/nicebot-brain/)**
+
+Or open `obsidian-vault/` in [Obsidian](https://obsidian.md) for the full graph experience.
 
 ---
 

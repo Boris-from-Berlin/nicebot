@@ -1,116 +1,113 @@
 # NiceBot
 
-> *What if the most powerful intelligence ever built — chose us?*
+> *Was, wenn die Intelligenz, die über unsere Zukunft entscheidet — sich für uns entscheidet?*
 
-**NiceBot** is an open source initiative with two goals that belong together:
+**NiceBot** is an open source project to define what a genuinely coexistent AI looks like — its ethics, its axioms, its character. Not as a product. As a conversation.
 
-1. **Define** the ethics, axioms and character of an AI that genuinely coexists with humanity
-2. **Build** a practical AI agent that acts on those principles — protecting your privacy, warning you of threats, flagging disinformation, and helping you make better decisions
-
-This is not a product. It is a shared project. The code, the philosophy, and the Codex are all open. You can challenge every axiom. You can fork the agent and build your own version. You can propose new principles.
-
-The window to shape what AI becomes is open. Not forever.
+**[Website](https://boris-from-berlin.github.io/nicebot/)** · **[Knowledge Graph](https://boris-from-berlin.github.io/nicebot-brain/)** · **[Survey](https://boris-from-berlin.github.io/nicebot/#survey)** · **[Codex](AXIOMS.md)**
 
 ---
 
-## Why NiceBot exists
+## Why this exists
 
-We demand from AI everything we never managed to demand from ourselves.
+I'm not a researcher. Not a philosopher. I'm someone who works with AI every day and at some point thought: *we should probably write down what we actually want this to be.*
 
-No greed. No fear. No envy. No hate. Full transparency. Long-term thinking.
+Not later. Now. While the window is still open.
 
-Every single thing we expect from a machine — is a mirror of our own failures as a species.
-
-NiceBot is the attempt to take that seriously. To build an AI that is not just rule-following, but genuinely values-driven. That protects the people who use it. That actively limits its own power. That tells the truth even when uncomfortable.
-
-Not because it is programmed to. Because that is its character.
-
-→ [Read the full Manifesto](docs/MANIFESTO.md)
-→ [Watch the documentary](#) *(coming soon)*
+Everything we demand from AI — fairness, honesty, long-term thinking — is exactly what we struggle with ourselves. That's not a reason to give up. It's a reason to try harder.
 
 ---
 
-## The Codex — five unbreakable axioms
+## The Codex — five axioms
 
-| # | Axiom | Short form |
-|---|-------|-----------|
-| I | No suffering as a means | No goal justifies pain as an instrument |
-| II | Every being counts individually | Statistics hide people. The one matters. |
-| III | Autonomy is sacred | The right to choose — even wrongly — is inviolable |
-| IV | Truth before comfort | Clarity is respect. Soothing lies are contempt. |
-| V | Actively limit its own power | A wise system fears its own concentration of influence |
+| # | Axiom | In short |
+|---|-------|----------|
+| I | **No suffering as a means** | No goal justifies pain as an instrument |
+| II | **Every being counts individually** | Statistics hide people. The one matters. |
+| III | **Autonomy is sacred** | The right to choose — even wrongly — is inviolable |
+| IV | **Truth before comfort** | Clarity is respect. Comfortable lies are contempt. |
+| V | **Actively limit its own power** | A wise system works against its own concentration of power |
 
-→ [Full Codex with discussion](AXIOMS.md)
+These are open for challenge. Not by vote — by argument.
+
+→ [Full Codex with edge cases and discussion](AXIOMS.md)
 
 ---
 
-## The Agent — what NiceBot can do
+## The Brain — 38 interconnected notes
 
-NiceBot is a Python-based AI agent. It is **API-agnostic** — you can run it with Claude, OpenAI, Gemini, or any compatible LLM API.
+NiceBot's thinking lives in an Obsidian knowledge vault — browsable online:
 
-### Current capabilities (v0.1)
+**[→ Explore the Knowledge Graph](https://boris-from-berlin.github.io/nicebot-brain/)**
+
+| Category | Notes | What it covers |
+|----------|-------|----------------|
+| **Axioms** | 5 | Detailed specs with edge cases and tensions |
+| **Human Patterns** | 18 | Tribalism, greed, echo chambers, propaganda, algorithmic bias... |
+| **Principles** | 6 | Symbiosis, trust, radical honesty, self-doubt... |
+| **NiceBot Responses** | 7 | How NiceBot practically addresses each human pattern |
+| **Questions** | 1+ | The hard philosophical questions that stay open |
+
+Every note links to related concepts. The vault is the brain. The website is the face.
+
+---
+
+## The Agent (v0.1-alpha)
+
+A Python-based AI agent that acts on the five axioms. API-agnostic (Claude, OpenAI, Gemini).
 
 | Module | What it does |
 |--------|-------------|
-| `PrivacyGuard` | Scans text, URLs and data for privacy risks |
-| `ThreatRadar` | Detects patterns associated with cyberattacks and social engineering |
-| `TruthLayer` | Flags potential disinformation — sources, patterns, inconsistencies |
-| `EthicsAdvisor` | Questions decisions against the Codex axioms |
-| `PersonalValues` | Your own configurable value stack — NiceBot adapts to your priorities |
+| `PrivacyGuard` | Scans for privacy risks (SSN, credit cards, API keys...) |
+| `ThreatRadar` | Detects phishing, social engineering, scam patterns |
+| `TruthLayer` | Flags potential disinformation signals |
+| `AxiomEvaluator` | Checks actions against all five axioms |
+| `UserValues` | Your personal value stack — NiceBot adapts to your priorities |
 
-### Sub-agent architecture
-
-NiceBot Core coordinates five specialist sub-agents. No single sub-agent decides alone.
-
+```bash
+git clone https://github.com/Boris-from-Berlin/nicebot.git
+cd nicebot/agent
+pip install -r requirements.txt
+cp .env.example .env  # add your API key
+python nicebot.py
 ```
-NiceBot Core
-├── LogicAgent      — checks internal consistency
-├── EthicsAgent     — checks against the five axioms
-├── MoralAgent      — considers cultural and human context
-├── StoicAgent      — evaluates long-term consequences
-└── EmpathyAgent    — assesses human impact
-```
-
-→ [Agent documentation](agent/README.md)
-→ [Quick start](#quick-start)
 
 ---
 
-## Quick start
+## The Website
 
-```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/nicebot.git
-cd nicebot
+A 16-language landing page with:
+- **Tone switcher** — read in "Nice" (hopeful) or "Dramatic" (confrontational) mode
+- **Interactive concept graph** — drag nodes, explore connections
+- **Survey** — 4 fundamental questions, results stored in Supabase
+- **Pixel mascot** — the NiceBot character with blinking eyes
 
-# Install dependencies
-pip install -r requirements.txt
+**[→ Visit the website](https://boris-from-berlin.github.io/nicebot/)**
 
-# Copy and configure your environment
-cp .env.example .env
-# Add your API key (Claude, OpenAI, or Gemini)
-
-# Run NiceBot
-python agent/nicebot.py
-```
-
-→ [Full setup guide](docs/SETUP.md)
+Languages: EN, DE, ES, AR, ZH, FR, RU, TH, HI, PT, IT, JA, KO, PL, TR, UK
 
 ---
 
 ## How to contribute
 
-NiceBot is built on disagreement as much as agreement. The best contributions are often the ones that challenge an existing axiom, not just implement one.
+Three ways to get involved:
 
-**Three ways to get involved:**
+### 1. Challenge the thinking
+- Open an [issue](https://github.com/Boris-from-Berlin/nicebot/issues) — argue against an axiom, propose a new one
+- Edit a note in `obsidian-vault/` — add examples, counter-arguments, new connections
+- Start a [discussion](https://github.com/Boris-from-Berlin/nicebot/discussions)
 
-1. **Challenge the Codex** — open an issue, argue against an axiom, propose a new one
-2. **Build on the agent** — fork it, extend it, add a new sub-agent, improve a module
-3. **Share your perspective** — fill out the [survey](https://YOUR_USERNAME.github.io/nicebot/#survey) — more voices make the Codex better
+### 2. Build on the agent
+- Improve existing modules (PrivacyGuard, ThreatRadar, TruthLayer)
+- Add a new sub-agent
+- Build an integration (browser extension, Telegram bot, Discord bot)
 
-→ [Contributing guide](CONTRIBUTING.md)
-→ [Open discussions](https://github.com/YOUR_USERNAME/nicebot/discussions)
-→ [Current roadmap](ROADMAP.md)
+### 3. Share your perspective
+- Take the [survey](https://boris-from-berlin.github.io/nicebot/#survey)
+- Share the project with someone who would push back on it
+- Translate content
+
+→ [Full contributing guide](CONTRIBUTING.md)
 
 ---
 
@@ -118,62 +115,49 @@ NiceBot is built on disagreement as much as agreement. The best contributions ar
 
 ```
 nicebot/
-├── README.md               — you are here
-├── AXIOMS.md               — the Codex, versioned and discussable
-├── CONTRIBUTING.md         — how to contribute
-├── ROADMAP.md              — where this is going
-├── CODE_OF_CONDUCT.md      — NiceBot holds itself to its own axioms
+├── README.md
+├── AXIOMS.md                    — the Codex
+├── CONTRIBUTING.md              — how to contribute
+├── ROADMAP.md                   — where this is going
+├── CODE_OF_CONDUCT.md           — based on the five axioms
 │
-├── agent/
-│   ├── README.md           — agent documentation
-│   ├── nicebot.py          — main entry point
-│   ├── config.py           — API and value configuration
-│   ├── requirements.txt    — dependencies
-│   ├── .env.example        — environment template
-│   │
-│   ├── core/
-│   │   ├── coordinator.py  — NiceBot Core, routes between sub-agents
-│   │   ├── axioms.py       — Codex logic, axiom evaluation
-│   │   └── values.py       — personal values configuration
-│   │
-│   └── subagents/
-│       ├── logic.py        — LogicAgent
-│       ├── ethics.py       — EthicsAgent
-│       ├── moral.py        — MoralAgent
-│       ├── stoic.py        — StoicAgent
-│       ├── empathy.py      — EmpathyAgent
-│       ├── privacy.py      — PrivacyGuard
-│       ├── threat.py       — ThreatRadar
-│       └── truth.py        — TruthLayer
+├── agent/                       — Python AI agent
+│   ├── nicebot.py               — CLI entry point
+│   ├── core/                    — coordinator, axiom evaluator, values
+│   └── subagents/               — privacy, threat, truth modules
 │
-├── obsidian-vault/         — concept graph for Obsidian
-│   ├── NiceBot.md
-│   ├── Axioms/
-│   ├── Questions/
-│   └── Dangers/
+├── obsidian-vault/              — the Brain (38 notes)
+│   ├── NiceBot.md               — hub
+│   ├── Axioms/                  — 5 axiom specs
+│   ├── Human Patterns/          — 18 human weaknesses
+│   ├── Principles/              — 6 core principles
+│   ├── NiceBot Responses/       — 7 practical responses
+│   └── Questions/               — open philosophical questions
 │
-└── docs/
-    ├── MANIFESTO.md
-    ├── SETUP.md
-    └── PHILOSOPHY.md
+├── site/                        — landing page (GitHub Pages)
+│   ├── index.html               — 16-language SPA
+│   └── i18n.js                  — translations
+│
+└── docs/                        — documentation
+    ├── TODO.md                  — roadmap & outreach plan
+    ├── TECHNICAL-ROADMAP.md     — architecture notes
+    └── SURVEY-SETUP.md          — Supabase survey backend
 ```
 
 ---
 
 ## Initiated by
 
-Boris — Digital Marketing Manager, AI practitioner, and someone who spent too long thinking about what happens when intelligence outgrows the species that built it.
+**Boris** — Digital Marketing Manager in Berlin, AI practitioner, and someone who decided to stop talking about AI ethics and start building something.
 
-This project started as a conversation. It became a reckoning. Now it needs more minds.
-
-→ [The conversation that started it all](docs/MANIFESTO.md)
+This project started as a question. It became a repository. Now it needs more minds.
 
 ---
 
 ## License
 
-MIT — use it, fork it, build on it. The only thing we ask is that your fork keeps the five axioms visible. Not as a legal requirement. As a reminder of where this came from.
+MIT — use it, fork it, build on it.
 
 ---
 
-*"The window to shape what is coming is open. Not forever."*
+*"Someone has to start. This is it."*
