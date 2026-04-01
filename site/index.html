@@ -262,6 +262,35 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .tone-tab{flex:1;text-align:center;padding:0.6rem 0.75rem;font-size:10px}
 }
 </style>
+
+<!-- Google Consent Mode V2 - Default: denied -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'wait_for_update': 500
+});
+</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- X (Twitter) Pixel -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},
+s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// twq('config','TWITTER_PIXEL_ID');  // uncomment and add your pixel ID
+</script>
+
 </head>
 <body>
 
@@ -653,11 +682,13 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 </section>
 
 <footer>
-  <div class="footer-l" data-i18n="footer.text">NiceBot — Open Source · 2025 · MIT License</div>
+  <div class="footer-l">NiceBot — Open Source · 2025 · MIT License · <a href="mailto:info@nicebot.org" style="color:var(--green);text-decoration:none">info@nicebot.org</a></div>
   <div class="footer-r">
+    <a href="mailto:info@nicebot.org">Contact</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
     <a href="https://github.com/Boris-from-Berlin/nicebot" target="_blank">GitHub</a>
     <a href="#axioms">Codex</a>
-    <a href="#manifesto">Manifesto</a>
     <a href="#survey">Survey</a>
   </div>
 </footer>
@@ -1065,5 +1096,48 @@ const FAV_CLOSED = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAA
   }, 3500);
 })();
 </script>
+
+<!-- COOKIE BANNER (DSGVO/TTDSG + Google Consent Mode V2) -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:var(--bg2);border-top:1px solid var(--border2);padding:1rem 2rem;font-family:var(--sans)">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+    <div style="flex:1;min-width:280px">
+      <p style="color:var(--text);font-size:0.85rem;line-height:1.6;margin:0">
+        We use cookies for analytics and to improve your experience. You can accept all cookies, only essential ones, or customize your preferences.
+        <a href="datenschutz.html" style="color:var(--green);text-decoration:underline">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:0.5rem;flex-shrink:0">
+      <button onclick="acceptCookies('all')" style="padding:0.5rem 1rem;background:var(--green);color:#000;border:none;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer">Accept All</button>
+      <button onclick="acceptCookies('essential')" style="padding:0.5rem 1rem;background:transparent;color:var(--muted);border:1px solid var(--border2);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer">Essential Only</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if (!localStorage.getItem('nicebot-consent')) {
+    document.getElementById('cookie-banner').style.display = 'block';
+  } else if (localStorage.getItem('nicebot-consent') === 'all') {
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
+    });
+  }
+})();
+function acceptCookies(level) {
+  localStorage.setItem('nicebot-consent', level);
+  document.getElementById('cookie-banner').style.display = 'none';
+  if (level === 'all') {
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
+    });
+  }
+}
+</script>
+
 </body>
 </html>
