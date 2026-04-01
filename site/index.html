@@ -111,6 +111,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .blockquote p{font-family:var(--sans);font-size:clamp(1rem,1.8vw,1.25rem);font-weight:300;color:var(--white);line-height:1.6}
 
 /* AXIOMS */
+.axioms-header{display:flex;align-items:center;gap:2rem;margin-bottom:3rem}
+.axioms-header-text{flex:1}
+.axioms-header-text .section-heading{margin-bottom:0.75rem}
+.axioms-header-text .section-sub{margin-bottom:0}
+.axioms-bot{width:180px;height:180px;object-fit:contain;flex-shrink:0}
 .axioms-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
 .axiom-row{display:grid;grid-template-columns:180px 1fr 1fr;background:var(--bg1);transition:background 0.15s}
 .axiom-row:hover{background:var(--bg3)}
@@ -238,6 +243,8 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .nicebot-mascot{display:none}
   .tracks-grid{grid-template-columns:1fr}
   .config-end{min-width:60px;font-size:0.7rem}
+  .axioms-header{flex-direction:column-reverse;text-align:center}
+  .axioms-bot{width:120px;height:120px}
   .tone-tabs{width:100%}
   .tone-tab{flex:1;text-align:center;padding:0.6rem 0.75rem;font-size:10px}
 }
@@ -398,8 +405,13 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="axioms">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">03 — codex</span><div class="section-rule"></div></div>
-    <h2 class="section-heading" data-i18n="axioms.heading">Five unbreakable axioms</h2>
-    <p class="section-sub" data-i18n="axioms.sub">Not determined by vote. Not by culture. Not by majority. Non-negotiable.</p>
+    <div class="axioms-header">
+      <div class="axioms-header-text">
+        <h2 class="section-heading" data-i18n="axioms.heading">Five unbreakable axioms</h2>
+        <p class="section-sub" data-i18n="axioms.sub">Not determined by vote. Not by culture. Not by majority. Non-negotiable.</p>
+      </div>
+      <img src="img-education.webp" alt="NiceBot Education" class="axioms-bot">
+    </div>
     <div class="axioms-list">
       <div class="axiom-row">
         <div class="axiom-id"><span class="axiom-roman">I</span><span class="axiom-tag" data-i18n="axiom1.tag">Foundation</span></div>
