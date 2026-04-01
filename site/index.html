@@ -172,8 +172,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 
 /* TRACKS */
 .tracks-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
-.track-card{background:var(--bg1);padding:2rem}
-.track-icon{font-size:2rem;margin-bottom:1rem}
+.track-card{background:var(--bg1);padding:2rem;display:flex;flex-direction:column;align-items:center}
+.track-img{width:160px;height:160px;object-fit:contain;margin-bottom:1.5rem}
 .track-title{font-family:var(--mono);font-size:1.1rem;color:var(--white);font-weight:400;margin-bottom:0.5rem}
 .track-q{font-family:var(--sans);color:var(--green);font-size:0.95rem;margin-bottom:1.5rem}
 .track-list{list-style:none;margin-bottom:1.5rem}
@@ -467,7 +467,7 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
     <p class="section-sub">Two independent communities. One shared output. You don't need both — pick your side.</p>
     <div class="tracks-grid">
       <div class="track-card">
-        <div class="track-icon">&#x1F4AD;</div>
+        <img src="img-philosophy.webp" alt="NiceBot Philosophy" class="track-img">
         <h3 class="track-title">Philosophy Track</h3>
         <p class="track-q"><em>"What SHOULD AI be?"</em></p>
         <ul class="track-list">
@@ -481,7 +481,7 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
         <a href="https://boris-from-berlin.github.io/nicebot-brain/" class="btn btn-outline" target="_blank" style="margin-top:1rem;width:100%;justify-content:center">Explore the Brain</a>
       </div>
       <div class="track-card">
-        <div class="track-icon">&#x2699;</div>
+        <img src="img-engineering.webp" alt="NiceBot Engineering" class="track-img">
         <h3 class="track-title">Engineering Track</h3>
         <p class="track-q"><em>"What CAN AI do — safely?"</em></p>
         <ul class="track-list">
