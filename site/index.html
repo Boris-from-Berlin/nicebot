@@ -823,6 +823,20 @@ function setTone(tone) {
 // Restore tone preference
 const savedTone = localStorage.getItem('nicebot-tone');
 if (savedTone && TONES[savedTone]) setTone(savedTone);
+
+// ANIMATED FAVICON (JS-based blink)
+const FAV_OPEN = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAArElEQVR4nO2WwQ2DMAxFv7+yS9mOXukA5Vq2g2nCCURRYiKIZNrknSLZsr8tJ7FAxyMPEjMQxshR5e3YXUowNL2ajzCGmvFq9SkxCGNoLcClOn4e7/X8nF6nfW7XAVYBqAKMEe3ny/ESBv6Dr9yEMdxXnKvqEKH4hDEsXoBLmNZshOILSl/J5MBe7loe7cZ2JvZDFbGpOYgf2An9mduw+A9N77UuSKqAvx3Cygy1gi/7xyDkhwAAAABJRU5ErkJggg==';
+const FAV_CLOSED = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAr0lEQVR4nO2WQRKDIAxFfzLcRW9nt3oA3ert2tPQ6aIzVTEwhTEovCVh8j8EYwgyFmmgowBDGfKdvHv2UQJLO4l6DGVYCsaePiQHQxmuBlANKGNCN87NuFt7vAZvLKoTdgn6wKYbUtYlsCfo/WpQFjewMvCpeaq6u3DlZyjDxRswwvSSHFd+QukjGXni5Y7lQT+o7aM6iIkajAvMA/afr+G7f2knK90ChRq47SOsvAFCCDH85gOfBQAAAABJRU5ErkJggg==';
+(function animateFavicon(){
+  const link = document.querySelector('link[rel="icon"][type="image/gif"]') || document.createElement('link');
+  link.rel = 'icon'; link.type = 'image/png';
+  if (!link.parentNode) document.head.appendChild(link);
+  link.href = FAV_OPEN;
+  setInterval(()=>{
+    link.href = FAV_CLOSED;
+    setTimeout(()=>{ link.href = FAV_OPEN; }, 180);
+  }, 3500);
+})();
 </script>
 </body>
 </html>
