@@ -131,6 +131,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .axiom-body{padding:1.75rem;font-family:var(--sans);font-size:0.88rem;color:var(--muted);line-height:1.7;display:flex;align-items:center}
 
 /* GRAPH */
+.graph-header{display:flex;align-items:center;gap:2rem;margin-bottom:3rem}
+.graph-header .section-heading{margin-bottom:0.75rem}
+.graph-header .section-sub{margin-bottom:0}
+.graph-bot{width:200px;height:auto;object-fit:contain;flex-shrink:0}
 .graph-wrap{position:relative}
 #graph-canvas{width:100%;height:520px;background:var(--bg1);border:1px solid var(--border);cursor:grab;display:block}
 #graph-canvas:active{cursor:grabbing}
@@ -252,6 +256,8 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .manifesto-bot{width:120px;height:120px}
   .axioms-header{flex-direction:column-reverse;text-align:center}
   .axioms-bot{width:120px;height:120px}
+  .graph-header{flex-direction:column-reverse;text-align:center}
+  .graph-bot{width:150px}
   .tone-tabs{width:100%}
   .tone-tab{flex:1;text-align:center;padding:0.6rem 0.75rem;font-size:10px}
 }
@@ -457,8 +463,13 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="graph">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">04 — logic network</span><div class="section-rule"></div></div>
-    <h2 class="section-heading" data-i18n="graph.heading">The concept graph</h2>
-    <p class="section-sub" data-i18n="graph.sub">Drag nodes. Hover to explore. This is the living map of the Codex.</p>
+    <div class="graph-header">
+      <div>
+        <h2 class="section-heading" data-i18n="graph.heading">The concept graph</h2>
+        <p class="section-sub" data-i18n="graph.sub">Drag nodes. Hover to explore. This is the living map of the Codex.</p>
+      </div>
+      <img src="img-community.webp" alt="NiceBot Community" class="graph-bot">
+    </div>
     <div class="graph-wrap">
       <canvas id="graph-canvas"></canvas>
       <div class="graph-tooltip" id="graph-tooltip"></div>
