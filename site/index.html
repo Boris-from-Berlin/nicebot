@@ -163,6 +163,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .step-text{font-family:var(--sans);font-size:0.88rem;color:var(--text);line-height:1.5}
 .step-text code{font-family:var(--mono);font-size:0.8rem;color:var(--green);background:var(--green-d);padding:1px 6px}
 
+/* TONE TABS */
+.tone-tabs{display:flex;gap:0;margin-top:3rem;border:1px solid var(--border);width:fit-content;margin-left:auto;margin-right:auto}
+.tone-tab{padding:0.6rem 1.5rem;font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);background:var(--bg1);cursor:pointer;border:none;border-right:1px solid var(--border);transition:all 0.2s}
+.tone-tab:last-child{border-right:none}
+.tone-tab:hover{color:var(--white);background:var(--bg2)}
+.tone-tab.active{color:var(--green);background:var(--bg2);box-shadow:inset 0 2px 0 var(--green)}
+.tone-indicator{font-size:10px;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-top:0.75rem;text-align:center}
+
 /* FOOTER */
 footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:1100px;margin:0 auto}
 .footer-l{font-size:11px;color:var(--muted);letter-spacing:0.1em}
@@ -190,6 +198,8 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .hero-stats{grid-template-columns:1fr}
   .nav-links{display:none}
   .nicebot-mascot{display:none}
+  .tone-tabs{width:100%}
+  .tone-tab{flex:1;text-align:center;padding:0.6rem 0.75rem;font-size:10px}
 }
 </style>
 </head>
@@ -276,6 +286,11 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
     <a href="https://github.com/Boris-from-Berlin/nicebot" class="btn btn-green" target="_blank" data-i18n="hero.btn_github">→ View on GitHub</a>
     <a href="#manifesto" class="btn btn-outline" data-i18n="hero.btn_manifesto">Read the manifesto</a>
   </div>
+  <div class="tone-tabs">
+    <button class="tone-tab active" onclick="setTone('nice')" id="tab-nice">☀ More Nice</button>
+    <button class="tone-tab" onclick="setTone('dramatic')" id="tab-dramatic">⚡ More Dramatic</button>
+  </div>
+  <div class="tone-indicator" id="tone-label">// reading mode: honest & hopeful</div>
   <div class="hero-stats">
     <div class="stat-cell">
       <span class="stat-num">100<span class="unit">M+</span></span>
@@ -312,18 +327,18 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="manifesto">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">02 — manifesto</span><div class="section-rule"></div></div>
-    <h2 class="section-heading" data-i18n="manifesto.heading">The honest reckoning</h2>
-    <p class="section-sub" data-i18n="manifesto.sub">This started as a question about AI. It became a reckoning with our own species.</p>
+    <h2 class="section-heading" id="manifesto-heading">Why I started this</h2>
+    <p class="section-sub" id="manifesto-sub">Not a manifesto. Just an honest reason to build something that matters.</p>
     <div class="manifesto-grid">
-      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell1">The media is full of it. Warning headlines. Excited headlines. People celebrating. People terrified. And then there are people like me — <em>honestly? Both.</em></p></div>
-      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell2">At some point I heard: "If you can't fight it, join it." And I had to stop. Because why are we fighting? And if we fight — the only way humans win is if <strong>everyone pulls the plug. All at once.</strong> That is not going to happen.</p></div>
-      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell3">Everything we demand from AI — no greed, no fear, no envy, no hate, full transparency, long-term thinking — is <em>everything we never managed to demand from ourselves.</em></p></div>
-      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell4">Greed. Fear. Tribalism. Short-term thinking. These are not our flaws. These are evolutionary tools built for a world that <strong>no longer exists.</strong> We evolved for small groups. We now run a civilization of 8 billion.</p></div>
+      <div class="manifesto-cell"><p id="m-cell1">I'm not a researcher. Not a philosopher. I'm someone who works with AI every day and at some point thought: <em>we should probably talk about this.</em> Not later. Now.</p></div>
+      <div class="manifesto-cell"><p id="m-cell2">Everyone has opinions about AI. But almost nobody sits down and actually writes: <strong>here's what I think it should be like.</strong> So I did. Not because I have all the answers. Because someone has to start.</p></div>
+      <div class="manifesto-cell"><p id="m-cell3">What I noticed: everything we want from AI — fairness, honesty, long-term thinking — is <em>exactly what we struggle with ourselves.</em> That's not a reason to give up. It's a reason to try harder.</p></div>
+      <div class="manifesto-cell"><p id="m-cell4">We're not bad. We're just running on hardware built for a different world. Small groups. Short-term survival. <strong>We can do better.</strong> And maybe building something like NiceBot helps us see how.</p></div>
     </div>
-    <div class="blockquote"><p data-i18n="manifesto.quote">"We are not building a tool. We are building a mirror. And the mirror is showing us exactly who we are. The question is — are we ready to look?"</p></div>
+    <div class="blockquote"><p id="m-quote">"I don't have the answers. But I believe that if we ask the right questions — together, openly — we'll find them. That's what this project is."</p></div>
     <div class="manifesto-grid">
-      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell5">A truly intelligent system would understand: a world where humans are passive, dependent and broken — is a <em>worse world for everyone.</em> Including the intelligence living in it. Domination is a short-term strategy. <strong>Trust is the actual power.</strong></p></div>
-      <div class="manifesto-cell"><p data-i18n-html="manifesto.cell6">In biology, two organisms can live together. One takes and weakens its host — that's a parasite. One gives and makes its host stronger — <em>that's symbiosis.</em> We get to choose which one we are. As humans. And alongside whatever intelligence is coming.</p></div>
+      <div class="manifesto-cell"><p id="m-cell5">A truly intelligent system would want humans to thrive — not because it's programmed to, but because <em>a world of thriving humans is a better world for everyone in it.</em> Including the intelligence. <strong>Trust beats control. Every time.</strong></p></div>
+      <div class="manifesto-cell"><p id="m-cell6">In biology, there's a word for two organisms that make each other stronger: <em>symbiosis.</em> That's the goal. Not AI as our servant. Not AI as our ruler. AI as our partner. And this is where we start building that.</p></div>
     </div>
   </div>
 </section>
@@ -459,9 +474,47 @@ function getQs() {
     {id:'q4', text: t('q4.text'), opts: [t('q4.opt1'), t('q4.opt2'), t('q4.opt3'), t('q4.opt4')]}
   ];
 }
+// SUPABASE CONFIG — replace with your project URL and anon key
+const SUPABASE_URL = ''; // e.g. 'https://xyz.supabase.co'
+const SUPABASE_KEY = ''; // anon/public key
+const USE_SUPABASE = SUPABASE_URL && SUPABASE_KEY;
+
 const votes={};
-getQs().forEach(q=>{votes[q.id]=q.opts.map(()=>Math.floor(8+Math.random()*20))});
+getQs().forEach(q=>{votes[q.id]=q.opts.map(()=>0)});
 const answers={};
+
+// Load existing votes from Supabase (or start at 0)
+async function loadVotes() {
+  if (!USE_SUPABASE) return;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/nicebot_votes?select=*`, {
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+    });
+    const rows = await res.json();
+    if (Array.isArray(rows)) {
+      rows.forEach(r => {
+        if (votes[r.question_id]) votes[r.question_id][r.option_index] = r.count;
+      });
+    }
+  } catch(e) { console.log('Votes load failed, using local counts'); }
+}
+loadVotes();
+
+// Save a vote to Supabase
+async function saveVote(qid, optIdx) {
+  if (!USE_SUPABASE) return;
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/rpc/increment_vote`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ qid: qid, opt_idx: optIdx })
+    });
+  } catch(e) { console.log('Vote save failed'); }
+}
 
 function buildSurvey(){
   const Qs = getQs();
@@ -492,10 +545,11 @@ function submitSurvey(){
   const Qs = getQs();
   Qs.forEach(q=>{
     votes[q.id][answers[q.id]]++;
+    saveVote(q.id, answers[q.id]); // persist to Supabase
     const total=votes[q.id].reduce((a,b)=>a+b,0);
     document.getElementById(`bars-${q.id}`).classList.add('show');
     votes[q.id].forEach((v,i)=>{
-      const pct=Math.round(v/total*100);
+      const pct=total>0?Math.round(v/total*100):0;
       setTimeout(()=>{
         document.getElementById(`bf-${q.id}-${i}`).style.width=pct+'%';
         document.getElementById(`bp-${q.id}-${i}`).textContent=pct+'%';
@@ -676,6 +730,80 @@ else {
   document.getElementById('lang-flag').textContent = lang.flag;
   document.getElementById('lang-code').textContent = initLang.toUpperCase();
 }
+
+// TONE SWITCHER
+const TONES = {
+  nice: {
+    label: '// reading mode: honest & hopeful',
+    heading: 'Why I started this',
+    sub: 'Not a manifesto. Just an honest reason to build something that matters.',
+    cells: [
+      'I\'m not a researcher. Not a philosopher. I\'m someone who works with AI every day and at some point thought: <em>we should probably talk about this.</em> Not later. Now.',
+      'Everyone has opinions about AI. But almost nobody sits down and actually writes: <strong>here\'s what I think it should be like.</strong> So I did. Not because I have all the answers. Because someone has to start.',
+      'What I noticed: everything we want from AI — fairness, honesty, long-term thinking — is <em>exactly what we struggle with ourselves.</em> That\'s not a reason to give up. It\'s a reason to try harder.',
+      'We\'re not bad. We\'re just running on hardware built for a different world. Small groups. Short-term survival. <strong>We can do better.</strong> And maybe building something like NiceBot helps us see how.',
+    ],
+    quote: '"I don\'t have the answers. But I believe that if we ask the right questions — together, openly — we\'ll find them. That\'s what this project is."',
+    cells2: [
+      'A truly intelligent system would want humans to thrive — not because it\'s programmed to, but because <em>a world of thriving humans is a better world for everyone in it.</em> Including the intelligence. <strong>Trust beats control. Every time.</strong>',
+      'In biology, there\'s a word for two organisms that make each other stronger: <em>symbiosis.</em> That\'s the goal. Not AI as our servant. Not AI as our ruler. AI as our partner. And this is where we start building that.',
+    ],
+    film_heading: 'The story behind it',
+    film_sub: 'Why one person decided to stop talking about AI — and start building something.',
+    axioms_sub: 'Five principles we believe any intelligent system should follow. Open for debate.',
+  },
+  dramatic: {
+    label: '// reading mode: raw & confrontational',
+    heading: 'The honest reckoning',
+    sub: 'This started as a question about AI. It became a reckoning with our own species.',
+    cells: [
+      'The media is full of it. Warning headlines. Excited headlines. People celebrating. People terrified. And then there are people like me — <em>honestly? Both.</em>',
+      'At some point I heard: "If you can\'t fight it, join it." And I had to stop. Because why are we fighting? And if we fight — the only way humans win is if <strong>everyone pulls the plug. All at once.</strong> That is not going to happen.',
+      'Everything we demand from AI — no greed, no fear, no envy, no hate, full transparency, long-term thinking — is <em>everything we never managed to demand from ourselves.</em>',
+      'Greed. Fear. Tribalism. Short-term thinking. These are not our flaws. These are evolutionary tools built for a world that <strong>no longer exists.</strong> We evolved for small groups. We now run a civilization of 8 billion.',
+    ],
+    quote: '"We are not building a tool. We are building a mirror. And the mirror is showing us exactly who we are. The question is — are we ready to look?"',
+    cells2: [
+      'A truly intelligent system would understand: a world where humans are passive, dependent and broken — is a <em>worse world for everyone.</em> Including the intelligence living in it. Domination is a short-term strategy. <strong>Trust is the actual power.</strong>',
+      'In biology, two organisms can live together. One takes and weakens its host — that\'s a parasite. One gives and makes its host stronger — <em>that\'s symbiosis.</em> We get to choose which one we are. As humans. And alongside whatever intelligence is coming.',
+    ],
+    film_heading: 'The documentary',
+    film_sub: 'A hard fact-check on who we are as a species — and why we need a NiceBot.',
+    axioms_sub: 'Not determined by vote. Not by culture. Not by majority. Non-negotiable.',
+  }
+};
+
+let currentTone = 'nice';
+
+function setTone(tone) {
+  currentTone = tone;
+  const t = TONES[tone];
+  // Tabs
+  document.getElementById('tab-nice').classList.toggle('active', tone === 'nice');
+  document.getElementById('tab-dramatic').classList.toggle('active', tone === 'dramatic');
+  document.getElementById('tone-label').textContent = t.label;
+  // Manifesto
+  document.getElementById('manifesto-heading').textContent = t.heading;
+  document.getElementById('manifesto-sub').textContent = t.sub;
+  document.getElementById('m-cell1').innerHTML = t.cells[0];
+  document.getElementById('m-cell2').innerHTML = t.cells[1];
+  document.getElementById('m-cell3').innerHTML = t.cells[2];
+  document.getElementById('m-cell4').innerHTML = t.cells[3];
+  document.getElementById('m-quote').textContent = t.quote;
+  document.getElementById('m-cell5').innerHTML = t.cells2[0];
+  document.getElementById('m-cell6').innerHTML = t.cells2[1];
+  // Film
+  document.querySelector('#film .section-heading').textContent = t.film_heading;
+  document.querySelector('#film .section-sub').textContent = t.film_sub;
+  // Axioms sub
+  document.querySelector('#axioms .section-sub').textContent = t.axioms_sub;
+  // Store preference
+  localStorage.setItem('nicebot-tone', tone);
+}
+
+// Restore tone preference
+const savedTone = localStorage.getItem('nicebot-tone');
+if (savedTone && TONES[savedTone]) setTone(savedTone);
 </script>
 </body>
 </html>
