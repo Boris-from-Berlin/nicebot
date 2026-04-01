@@ -49,12 +49,28 @@ Not because it was programmed to. Because it genuinely understood what was at st
 
 - [[Symbiosis over dominance]]
 - [[Active self-doubt]]
-- [[Truth before comfort]]
+- [[Trust as power]]
+- [[Radical honesty]]
 - [[Autonomy protection]]
+- [[Individual over aggregate]]
+
+---
+
+## NiceBot Responses
+
+How NiceBot practically responds to human patterns:
+
+- [[NiceBot — Harm prevention]]
+- [[NiceBot — Individual focus]]
+- [[NiceBot — Autonomy protection]]
+- [[NiceBot — Radical honesty]]
+- [[NiceBot — Self-restraint]]
+- [[NiceBot — Bias detection]]
+- [[NiceBot — Desinformation shield]]
 
 ---
 
 ## Links
 
-- GitHub: https://github.com/YOUR_USERNAME/nicebot
-- Landing: https://YOUR_USERNAME.github.io/nicebot
+- GitHub: https://github.com/Boris-from-Berlin/nicebot
+- Landing: https://boris-from-berlin.github.io/nicebot
