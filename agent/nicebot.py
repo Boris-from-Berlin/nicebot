@@ -16,11 +16,12 @@ load_dotenv()
 
 BANNER = """
 ╔═══════════════════════════════════════════╗
-║           NiceBot v0.1-alpha              ║
-║   An AI that chooses coexistence          ║
+║           NiceBot v0.2-alpha              ║
+║   An AI ethics agent. Protect. Never      ║
+║   destroy. Five axioms. No exceptions.    ║
 ║                                           ║
-║   Five axioms. No exceptions.             ║
-║   github.com/YOUR_USERNAME/nicebot        ║
+║   github.com/Boris-from-Berlin/nicebot    ║
+║   MCP: python agent/mcp/server.py         ║
 ╚═══════════════════════════════════════════╝
 """
 
@@ -101,11 +102,18 @@ def print_help():
   /privacy  — scan for privacy risks
   /threat   — check for threat patterns
   /truth    — analyze for disinformation signals
+  /security — scan for security vulnerabilities
   /ethics   — question a decision against the Codex
   /check    — full analysis through all sub-agents
 
+[MCP Server]
+  python agent/mcp/server.py  — run as Ethics-as-a-Service
+  Any AI system can use NiceBot as its conscience via MCP.
+  Tools: nicebot_protect, nicebot_ethics_check, nicebot_security_scan...
+
 [Example]
   /privacy  My company wants to use this data: [paste data]
+  /security SELECT * FROM users WHERE id = '$user_input'
   /ethics   I am considering [describe decision]
   /truth    [paste article or claim to analyze]
   /threat   [paste suspicious email or message]

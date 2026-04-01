@@ -91,6 +91,11 @@ class NiceBotCoordinator:
             truth_flags = TruthLayer.scan(clean_input)
             flags.extend(truth_flags)
 
+        if mode == "security" or mode == "full":
+            from ..subagents.security import SecurityGuardian
+            security_flags = SecurityGuardian.scan(clean_input)
+            flags.extend(security_flags)
+
         if mode == "ethics" or mode == "full":
             axiom_checks = self.axiom_evaluator.check(clean_input)
 
@@ -112,6 +117,7 @@ class NiceBotCoordinator:
             "/privacy": "privacy",
             "/threat": "threat",
             "/truth": "truth",
+            "/security": "security",
             "/ethics": "ethics",
             "/check": "full"
         }
