@@ -102,6 +102,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .play-tri{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:18px solid var(--green);margin-left:4px}
 
 /* MANIFESTO */
+.manifesto-header{display:flex;align-items:center;gap:2rem;margin-bottom:3rem}
+.manifesto-header-text{flex:1}
+.manifesto-header-text .section-heading{margin-bottom:0.75rem}
+.manifesto-header-text .section-sub{margin-bottom:0}
+.manifesto-bot{width:160px;height:160px;object-fit:contain;flex-shrink:0}
 .manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
 .manifesto-cell{background:var(--bg1);padding:2rem}
 .manifesto-cell p{font-family:var(--sans);font-size:0.95rem;color:var(--white);line-height:1.8;font-weight:300}
@@ -243,6 +248,8 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .nicebot-mascot{display:none}
   .tracks-grid{grid-template-columns:1fr}
   .config-end{min-width:60px;font-size:0.7rem}
+  .manifesto-header{flex-direction:column-reverse;text-align:center}
+  .manifesto-bot{width:120px;height:120px}
   .axioms-header{flex-direction:column-reverse;text-align:center}
   .axioms-bot{width:120px;height:120px}
   .tone-tabs{width:100%}
@@ -386,8 +393,13 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
 <section id="manifesto">
   <div class="section-wrap">
     <div class="section-label"><span class="section-num">02 — manifesto</span><div class="section-rule"></div></div>
-    <h2 class="section-heading" id="manifesto-heading">Why I started this</h2>
-    <p class="section-sub" id="manifesto-sub">Not a manifesto. Just an honest reason to build something that matters.</p>
+    <div class="manifesto-header">
+      <div class="manifesto-header-text">
+        <h2 class="section-heading" id="manifesto-heading">Why I started this</h2>
+        <p class="section-sub" id="manifesto-sub">Not a manifesto. Just an honest reason to build something that matters.</p>
+      </div>
+      <img src="img-nicebot.webp" alt="NiceBot" class="manifesto-bot">
+    </div>
     <div class="manifesto-grid">
       <div class="manifesto-cell"><p id="m-cell1">I'm not a researcher. Not a philosopher. I'm someone who works with AI every day and at some point thought: <em>we should probably talk about this.</em> Not later. Now.</p></div>
       <div class="manifesto-cell"><p id="m-cell2">Everyone has opinions about AI. But almost nobody sits down and actually writes: <strong>here's what I think it should be like.</strong> So I did. Not because I have all the answers. Because someone has to start.</p></div>
