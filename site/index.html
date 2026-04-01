@@ -170,6 +170,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .step-text{font-family:var(--sans);font-size:0.88rem;color:var(--text);line-height:1.5}
 .step-text code{font-family:var(--mono);font-size:0.8rem;color:var(--green);background:var(--green-d);padding:1px 6px}
 
+/* TRACKS */
+.tracks-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem}
+.track-card{background:var(--bg1);padding:2rem}
+.track-icon{font-size:2rem;margin-bottom:1rem}
+.track-title{font-family:var(--mono);font-size:1.1rem;color:var(--white);font-weight:400;margin-bottom:0.5rem}
+.track-q{font-family:var(--sans);color:var(--green);font-size:0.95rem;margin-bottom:1.5rem}
+.track-list{list-style:none;margin-bottom:1.5rem}
+.track-list li{font-family:var(--sans);font-size:0.88rem;color:var(--text);line-height:1.6;padding:0.3rem 0;padding-left:1rem;position:relative}
+.track-list li::before{content:'→';position:absolute;left:0;color:var(--green)}
+.track-list code{font-family:var(--mono);font-size:0.8rem;color:var(--green);background:var(--green-d);padding:1px 6px}
+.track-need{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;padding-top:0.5rem;border-top:1px solid var(--border)}
+.track-merge{display:flex;align-items:center;gap:1rem;margin-top:2rem}
+.track-merge-line{flex:1;height:1px;background:var(--green)}
+.track-merge-label{font-family:var(--sans);font-size:0.85rem;color:var(--muted);text-align:center;max-width:500px;line-height:1.6}
+
+/* CONFIGURATOR */
+.config-grid{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
+.config-slider{background:var(--bg1);border:1px solid var(--border);padding:1.25rem}
+.config-label{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);margin-bottom:0.75rem}
+.config-range-wrap{display:flex;align-items:center;gap:1rem}
+.config-end{font-family:var(--sans);font-size:0.8rem;color:var(--muted);white-space:nowrap;min-width:80px}
+.config-end:last-child{text-align:right}
+.config-range{flex:1;-webkit-appearance:none;appearance:none;height:2px;background:var(--border2);outline:none;cursor:pointer}
+.config-range::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--green);cursor:pointer}
+.config-value{font-family:var(--mono);font-size:11px;color:var(--green);margin-top:0.5rem;letter-spacing:0.1em}
+.config-output{background:var(--bg1);border:1px solid var(--border);padding:1.5rem;margin-top:1rem}
+.config-output-title{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.config-output pre{font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.6;white-space:pre-wrap}
+.config-hint{font-family:var(--sans);font-size:0.8rem;color:var(--muted);margin-top:0.75rem}
+.config-hint code{font-family:var(--mono);font-size:0.75rem;color:var(--green);background:var(--green-d);padding:1px 6px}
+
 /* TONE TABS */
 .tone-tabs{display:flex;gap:0;margin-top:3rem;border:1px solid var(--border);width:fit-content;margin-left:auto;margin-right:auto}
 .tone-tab{padding:0.6rem 1.5rem;font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);background:var(--bg1);cursor:pointer;border:none;border-right:1px solid var(--border);transition:all 0.2s}
@@ -205,6 +236,8 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   .hero-stats{grid-template-columns:1fr}
   .nav-links{display:none}
   .nicebot-mascot{display:none}
+  .tracks-grid{grid-template-columns:1fr}
+  .config-end{min-width:60px;font-size:0.7rem}
   .tone-tabs{width:100%}
   .tone-tab{flex:1;text-align:center;padding:0.6rem 0.75rem;font-size:10px}
 }
@@ -236,6 +269,7 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
       <li><a href="#axioms" data-i18n="nav.codex">Codex</a></li>
       <li><a href="#graph" data-i18n="nav.graph">Graph</a></li>
       <li><a href="#survey" data-i18n="nav.survey">Survey</a></li>
+      <li><a href="#configure">Config</a></li>
       <li><a href="#join" data-i18n="nav.github">GitHub</a></li>
     </ul>
     <div class="lang-picker">
@@ -422,6 +456,118 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
     <div id="survey-questions"></div>
     <button class="survey-submit" id="survey-btn" onclick="submitSurvey()" disabled data-i18n="survey.submit">→ Submit answers</button>
     <div class="survey-done" id="survey-done" data-i18n="survey.done">// Thank you. Your perspective is now part of the Codex.</div>
+  </div>
+</section>
+
+<!-- TWO TRACKS: Philosophy + Tech -->
+<section id="tracks">
+  <div class="section-wrap">
+    <div class="section-label"><span class="section-num">06 — two paths, one bot</span><div class="section-rule"></div></div>
+    <h2 class="section-heading">Philosophy meets engineering</h2>
+    <p class="section-sub">Two independent communities. One shared output. You don't need both — pick your side.</p>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-icon">&#x1F4AD;</div>
+        <h3 class="track-title">Philosophy Track</h3>
+        <p class="track-q"><em>"What SHOULD AI be?"</em></p>
+        <ul class="track-list">
+          <li>Challenge the 5 axioms</li>
+          <li>Debate ethics, edge cases, paradoxes</li>
+          <li>Document human patterns & dangers</li>
+          <li>Shape NiceBot's character through argument</li>
+          <li>Take the survey — your voice counts</li>
+        </ul>
+        <div class="track-need">Needs: curiosity. Zero tech skills.</div>
+        <a href="https://boris-from-berlin.github.io/nicebot-brain/" class="btn btn-outline" target="_blank" style="margin-top:1rem;width:100%;justify-content:center">Explore the Brain</a>
+      </div>
+      <div class="track-card">
+        <div class="track-icon">&#x2699;</div>
+        <h3 class="track-title">Engineering Track</h3>
+        <p class="track-q"><em>"What CAN AI do — safely?"</em></p>
+        <ul class="track-list">
+          <li>Build sub-agents & skills</li>
+          <li>Extend the MCP server</li>
+          <li>Add security scanners & bias detectors</li>
+          <li>Integrate NiceBot into your own AI stack</li>
+          <li>One call: <code>nicebot_protect()</code></li>
+        </ul>
+        <div class="track-need">Needs: Python. Zero philosophy.</div>
+        <a href="https://github.com/Boris-from-Berlin/nicebot" class="btn btn-outline" target="_blank" style="margin-top:1rem;width:100%;justify-content:center">View the Code</a>
+      </div>
+    </div>
+    <div class="track-merge">
+      <div class="track-merge-line"></div>
+      <div class="track-merge-label">Philosophy defines the axioms. Engineering implements them. Together they create YOUR NiceBot.</div>
+      <div class="track-merge-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURATOR: Build your NiceBot -->
+<section id="configure">
+  <div class="section-wrap">
+    <div class="section-label"><span class="section-num">07 — your nicebot</span><div class="section-rule"></div></div>
+    <h2 class="section-heading">Build your NiceBot</h2>
+    <p class="section-sub">Every NiceBot is different. Set yours up the way you want it.</p>
+    <div class="config-grid">
+      <div class="config-slider">
+        <div class="config-label">Communication style</div>
+        <div class="config-range-wrap">
+          <span class="config-end">Gentle</span>
+          <input type="range" min="0" max="3" value="2" class="config-range" id="cfg-comm" oninput="updateConfig()">
+          <span class="config-end">Blunt</span>
+        </div>
+        <div class="config-value" id="cfg-comm-val">direct</div>
+      </div>
+      <div class="config-slider">
+        <div class="config-label">Privacy sensitivity</div>
+        <div class="config-range-wrap">
+          <span class="config-end">Relaxed</span>
+          <input type="range" min="0" max="2" value="2" class="config-range" id="cfg-privacy" oninput="updateConfig()">
+          <span class="config-end">Paranoid</span>
+        </div>
+        <div class="config-value" id="cfg-privacy-val">high</div>
+      </div>
+      <div class="config-slider">
+        <div class="config-label">Truth delivery</div>
+        <div class="config-range-wrap">
+          <span class="config-end">Softened</span>
+          <input type="range" min="0" max="2" value="2" class="config-range" id="cfg-truth" oninput="updateConfig()">
+          <span class="config-end">Unfiltered</span>
+        </div>
+        <div class="config-value" id="cfg-truth-val">unfiltered</div>
+      </div>
+      <div class="config-slider">
+        <div class="config-label">Autonomy</div>
+        <div class="config-range-wrap">
+          <span class="config-end">NiceBot decides with me</span>
+          <input type="range" min="0" max="2" value="2" class="config-range" id="cfg-auto" oninput="updateConfig()">
+          <span class="config-end">Only inform, I decide</span>
+        </div>
+        <div class="config-value" id="cfg-auto-val">high</div>
+      </div>
+      <div class="config-slider">
+        <div class="config-label">Risk tolerance</div>
+        <div class="config-range-wrap">
+          <span class="config-end">Flag everything</span>
+          <input type="range" min="0" max="2" value="0" class="config-range" id="cfg-risk" oninput="updateConfig()">
+          <span class="config-end">Only critical</span>
+        </div>
+        <div class="config-value" id="cfg-risk-val">low</div>
+      </div>
+    </div>
+    <div class="config-output">
+      <div class="config-output-title">// your nicebot config</div>
+      <pre id="config-json">{
+  "communication_style": "direct",
+  "privacy_sensitivity": "high",
+  "truth_delivery": "unfiltered",
+  "autonomy_preference": "high",
+  "risk_tolerance": "low"
+}</pre>
+      <button class="btn btn-green" onclick="copyConfig()" style="margin-top:1rem">→ Copy config</button>
+      <div class="config-hint">Paste into <code>agent/config/values.json</code> to use with the NiceBot agent</div>
+    </div>
   </div>
 </section>
 
@@ -837,6 +983,38 @@ function setTone(tone) {
 // Restore tone preference
 const savedTone = localStorage.getItem('nicebot-tone');
 if (savedTone && TONES[savedTone]) setTone(savedTone);
+
+// CONFIGURATOR
+const CONFIG_MAP = {
+  comm: ['gentle','balanced','direct','blunt'],
+  privacy: ['low','medium','high'],
+  truth: ['softened','balanced','unfiltered'],
+  auto: ['low','medium','high'],
+  risk: ['low','medium','high']
+};
+function updateConfig(){
+  const vals = {
+    communication_style: CONFIG_MAP.comm[document.getElementById('cfg-comm').value],
+    privacy_sensitivity: CONFIG_MAP.privacy[document.getElementById('cfg-privacy').value],
+    truth_delivery: CONFIG_MAP.truth[document.getElementById('cfg-truth').value],
+    autonomy_preference: CONFIG_MAP.auto[document.getElementById('cfg-auto').value],
+    risk_tolerance: CONFIG_MAP.risk[document.getElementById('cfg-risk').value]
+  };
+  document.getElementById('cfg-comm-val').textContent = vals.communication_style;
+  document.getElementById('cfg-privacy-val').textContent = vals.privacy_sensitivity;
+  document.getElementById('cfg-truth-val').textContent = vals.truth_delivery;
+  document.getElementById('cfg-auto-val').textContent = vals.autonomy_preference;
+  document.getElementById('cfg-risk-val').textContent = vals.risk_tolerance;
+  document.getElementById('config-json').textContent = JSON.stringify(vals, null, 2);
+}
+function copyConfig(){
+  const text = document.getElementById('config-json').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = event.target;
+    btn.textContent = '✓ Copied';
+    setTimeout(()=>{ btn.textContent = '→ Copy config'; }, 2000);
+  });
+}
 
 // ANIMATED FAVICON (JS-based blink)
 const FAV_OPEN = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAArElEQVR4nO2WwQ2DMAxFv7+yS9mOXukA5Vq2g2nCCURRYiKIZNrknSLZsr8tJ7FAxyMPEjMQxshR5e3YXUowNL2ajzCGmvFq9SkxCGNoLcClOn4e7/X8nF6nfW7XAVYBqAKMEe3ny/ESBv6Dr9yEMdxXnKvqEKH4hDEsXoBLmNZshOILSl/J5MBe7loe7cZ2JvZDFbGpOYgf2An9mduw+A9N77UuSKqAvx3Cygy1gi/7xyDkhwAAAABJRU5ErkJggg==';
