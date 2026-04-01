@@ -312,16 +312,16 @@ footer{border-top:1px solid var(--border);padding:2rem;display:flex;justify-cont
   <div class="tone-indicator" id="tone-label">// reading mode: honest & hopeful</div>
   <div class="hero-stats">
     <div class="stat-cell">
-      <span class="stat-num">100<span class="unit">M+</span></span>
-      <span class="stat-label" data-i18n="hero.stat1">Humans killed by humans — last century</span>
+      <span class="stat-num" id="stat-num1">8<span class="unit">B</span></span>
+      <span class="stat-label" id="stat-label1">People who could benefit from AI that actually cares</span>
     </div>
     <div class="stat-cell">
-      <span class="stat-num">0<span class="unit">x</span></span>
-      <span class="stat-label" data-i18n="hero.stat2">Pauses taken to define AI ethics at scale</span>
+      <span class="stat-num" id="stat-num2">5<span class="unit"> axioms</span></span>
+      <span class="stat-label" id="stat-label2">Open source principles — yours to challenge and improve</span>
     </div>
     <div class="stat-cell">
-      <span class="stat-num">1<span class="unit"> window</span></span>
-      <span class="stat-label" data-i18n="hero.stat3">To shape this — and it will not stay open forever</span>
+      <span class="stat-num" id="stat-num3">1<span class="unit"> start</span></span>
+      <span class="stat-label" id="stat-label3">Someone has to begin — this is it</span>
     </div>
   </div>
 </section>
@@ -770,6 +770,11 @@ const TONES = {
     film_heading: 'The story behind it',
     film_sub: 'Why one person decided to stop talking about AI — and start building something.',
     axioms_sub: 'Five principles we believe any intelligent system should follow. Open for debate.',
+    stats: [
+      { num: '8<span class="unit">B</span>', label: 'People who could benefit from AI that actually cares' },
+      { num: '5<span class="unit"> axioms</span>', label: 'Open source principles — yours to challenge and improve' },
+      { num: '1<span class="unit"> start</span>', label: 'Someone has to begin — this is it' },
+    ],
   },
   dramatic: {
     label: '// reading mode: raw & confrontational',
@@ -789,6 +794,11 @@ const TONES = {
     film_heading: 'The documentary',
     film_sub: 'A hard fact-check on who we are as a species — and why we need a NiceBot.',
     axioms_sub: 'Not determined by vote. Not by culture. Not by majority. Non-negotiable.',
+    stats: [
+      { num: '∞<span class="unit"> wars</span>', label: 'Conflicts started by humans — and counting' },
+      { num: '0<span class="unit">x</span>', label: 'Times we paused to define AI ethics at scale' },
+      { num: '1<span class="unit"> window</span>', label: 'To shape this — it will not stay open forever' },
+    ],
   }
 };
 
@@ -816,6 +826,11 @@ function setTone(tone) {
   document.querySelector('#film .section-sub').textContent = t.film_sub;
   // Axioms sub
   document.querySelector('#axioms .section-sub').textContent = t.axioms_sub;
+  // Stats
+  t.stats.forEach((s, i) => {
+    document.getElementById('stat-num' + (i+1)).innerHTML = s.num;
+    document.getElementById('stat-label' + (i+1)).textContent = s.label;
+  });
   // Store preference
   localStorage.setItem('nicebot-tone', tone);
 }
