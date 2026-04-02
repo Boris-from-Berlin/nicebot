@@ -1,2 +1,12 @@
 .DS_Store
 obsidian-vault/.obsidian/
+
+# Private docs - nicht ins public repo
+docs/MARKETING-LAUNCH.md
+docs/VOICE-OVER-SCRIPTS.md
+docs/TODO.md
+docs/SURVEY-SETUP.md
+
+# Environment
+.env
+agent/config/values.json
