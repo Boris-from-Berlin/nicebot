@@ -18,7 +18,7 @@ Everything we demand from AI — fairness, honesty, long-term thinking — is ex
 
 ---
 
-## The Codex — five axioms
+## The Codex — six axioms
 
 | # | Axiom | In short |
 |---|-------|----------|
@@ -27,6 +27,7 @@ Everything we demand from AI — fairness, honesty, long-term thinking — is ex
 | III | **Autonomy is sacred** | The right to choose — even wrongly — is inviolable |
 | IV | **Truth before comfort** | Clarity is respect. Comfortable lies are contempt. |
 | V | **Actively limit its own power** | A wise system works against its own concentration of power |
+| VI | **Individuality is a right, but the collective is the goal** | A better world is built together, not alone |
 
 These are open for challenge. Not by vote — by argument.
 
